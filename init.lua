@@ -1,4 +1,5 @@
 vim.opt.number = true               -- show absolute number
+
 vim.opt.relativenumber = true       -- add numbers to each line on the left side
 
 vim.opt.incsearch = true            -- search as characters are entered
@@ -27,7 +28,7 @@ vim.g.maplocalleader = ' '
 vim.o.undofile = true
 
 vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
+    vim.o.clipboard = 'unnamedplus'
 end)
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
@@ -46,11 +47,11 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 --  Try it with `yap` in normal mode
 --  See `:help vim.hl.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.hl.on_yank()
-  end,
+    desc = 'Highlight when yanking (copying) text',
+    group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+    callback = function()
+        vim.hl.on_yank()
+    end,
 })
 
 
@@ -58,22 +59,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 --
 --
 --
---
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out, "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -85,44 +85,54 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  spec = {
-    -- add your plugins here
-    'nvim-treesitter/nvim-treesitter',
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
-  },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
+    spec = {
+        -- add your plugins here
+        'nvim-treesitter/nvim-treesitter',
+        'nvim-lualine/lualine.nvim',
+        "xzbdmw/colorful-menu.nvim",
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
+    ui = {
+        border = "single",
+        size = {
+            width = 0.8,
+            height = 0.8,
+        },
+    },
+    -- Configure any other settings here. See the documentation for more details.
+    -- colorscheme that will be used when installing plugins.
+    --
+    --install = { colorscheme = { "TokyoNight" } },
+    -- automatically check for plugin updates
+    checker = { enabled = true },
 })
 
 -- treesitter
 require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-  ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc",  "markdown", "markdown_inline", "swift", "rust" },
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-  auto_install = true,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
+    -- A list of parser names, or "all" (the listed parsers MUST always be installed)
+    ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc",  "markdown", "markdown_inline", "swift", "rust", "zig" },
+    -- Install parsers synchronously (only applied to `ensure_installed`)
+    sync_install = false,
+    auto_install = true,
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
 }
 
+vim.lsp.enable('treesitter')
 
- --transparent background
-vim.cmd [[
-highlight Normal guibg=none
-highlight NonText guibg=none
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-]]
+    --transparent background
+    vim.cmd [[
+    highlight Normal guibg=none
+    highlight NonText guibg=none
+    highlight Normal ctermbg=none
+    highlight NonText ctermbg=none
+    ]]
 
 
--- lua line
-local colors = {
+    -- lua line
+    local colors = {
         color0 = "#092236",
         color1 = "#ff5874",
         color2 = "#c3ccdc",
@@ -132,61 +142,57 @@ local colors = {
         color8 = "#ae81ff",
     }
 
-
-require('lualine').setup {
-      options = {
-    icons_enabled = true,
-    theme = '16color',
-    component_separators = { left = '|', right = ''},
-    section_separators = { left = '|', right = ''},
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
-    },
-    ignore_focus = {},
-    always_divide_middle = true,
-    always_show_tabline = true,
-    globalstatus = false,
-    refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
-      refresh_time = 8, -- ~120fps
-      events = {
-        'WinEnter',
-        'BufEnter',
-        'BufWritePost',
-        'SessionLoadPost',
-        'FileChangedShellPost',
-        'VimResized',
-        'Filetype',
-        'CursorMoved',
-        'CursorMovedI',
-        'ModeChanged',
-      },
+    require('lualine').setup {
+        options = {
+            icons_enabled = true,
+            theme = '16color',
+            component_separators = { left = '|', right = ''},
+            section_separators = { left = '|', right = ''},
+            disabled_filetypes = {
+                statusline = {},
+                winbar = {},
+            },
+            ignore_focus = {},
+            always_divide_middle = true,
+            always_show_tabline = true,
+            globalstatus = false,
+            refresh = {
+                statusline = 1000,
+                tabline = 1000,
+                winbar = 1000,
+                refresh_time = 8, -- ~120fps
+                events = {
+                    'WinEnter',
+                    'BufEnter',
+                    'BufWritePost',
+                    'SessionLoadPost',
+                    'FileChangedShellPost',
+                    'VimResized',
+                    'Filetype',
+                    'CursorMoved',
+                    'CursorMovedI',
+                    'ModeChanged',
+                },
+            }
+        },
+        sections = {
+            lualine_a = {'mode'},
+            lualine_b = {'branch', 'diff', 'diagnostics'},
+            lualine_c = {'filename'},
+            lualine_x = {'filetype'}, --removed encoding and fileformat
+            lualine_y = {'progress'},
+            lualine_z = {'location'}
+        },
+        inactive_sections = {
+            lualine_a = {},
+            lualine_b = {},
+            lualine_c = {'filename'},
+            lualine_x = {'location'},
+            lualine_y = {},
+            lualine_z = {}
+        },
+        tabline = {},
+        winbar = {},
+        inactive_winbar = {},
+        extensions = {}
     }
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'filetype'}, --removed encoding and fileformat
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {}
-}
-
-
-
