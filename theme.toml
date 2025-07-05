@@ -1,0 +1,21 @@
+[mgr]
+
+hovered = { reversed = true }
+preview_hovered = { reversed = true }
+
+find_position = {}
+
+tab_active = { reversed = true }
+tab_inactive = {}
+tab_width = 1
+
+
+border_symbol = "│"
+
+[which]
+cols = 2
+separator = " - "
+
+[status]
+sep_left = { open = "", close = "" }
+sep_right = { open = "", close = "" }
