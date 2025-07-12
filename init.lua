@@ -1,29 +1,16 @@
-vim.opt.number = true               -- show absolute number
+vim.opt.number = true
+vim.opt.relativenumber = true
 
-vim.opt.relativenumber = true       -- add numbers to each line on the left side
-
-vim.opt.incsearch = true            -- search as characters are entered
--- Preview substitutions live, as you type!
+vim.opt.incsearch = true      
 vim.o.inccommand = 'split'
-
-vim.cmd('filetype plugin on')
---vim.cmd('syntax on')
---vim.cmd('syntax=cpp')
-
 vim.o.cursorline = true
 
--- white text black background
--- vim.api.nvim_set_hl(0, "Normal", { fg = "#ffffff", bg = "#000000" })
-
+vim.cmd('filetype plugin on')
 vim.o["termguicolors"] = false
 
-
-vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
+vim.o.expandtab = true 
 vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
-
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 
 vim.o.undofile = true
 
@@ -31,7 +18,6 @@ vim.schedule(function()
     vim.o.clipboard = 'unnamedplus'
 end)
 
--- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
 vim.o.showmode = false
@@ -39,12 +25,12 @@ vim.o.showmode = false
 vim.o.splitright = true
 vim.o.splitbelow = true
 
+vim.cmd('let g:netrw_winsize = 30')
+vim.cmd('let g:netrw_keepdir = 0')
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
 --  See `:help vim.hl.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight when yanking (copying) text',
@@ -54,13 +40,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
-
--- plugins
---
---
---
-
--- Bootstrap lazy.nvim
+-- lazy pm
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -77,16 +57,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
--- Setup lazy.nvim
 require("lazy").setup({
     spec = {
         -- add your plugins here
+        'tpope/vim-fugitive',
         'nvim-treesitter/nvim-treesitter',
         'nvim-lualine/lualine.nvim',
         "xzbdmw/colorful-menu.nvim",
@@ -99,19 +73,12 @@ require("lazy").setup({
             height = 0.8,
         },
     },
-    -- Configure any other settings here. See the documentation for more details.
-    -- colorscheme that will be used when installing plugins.
-    --
-    --install = { colorscheme = { "TokyoNight" } },
-    -- automatically check for plugin updates
     checker = { enabled = true },
 })
 
 -- treesitter
 require'nvim-treesitter.configs'.setup {
-    -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-    ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc",  "markdown", "markdown_inline", "swift", "rust", "zig" },
-    -- Install parsers synchronously (only applied to `ensure_installed`)
+    ensure_installed = { "asm", "c", "cpp", "lua", "vim", "vimdoc",  "markdown", "markdown_inline", "swift", "rust", "zig" },
     sync_install = false,
     auto_install = true,
     highlight = {
@@ -122,77 +89,82 @@ require'nvim-treesitter.configs'.setup {
 
 vim.lsp.enable('treesitter')
 
-    --transparent background
-    vim.cmd [[
-    highlight Normal guibg=none
-    highlight NonText guibg=none
-    highlight Normal ctermbg=none
-    highlight NonText ctermbg=none
-    ]]
+-- lua line
+local colors = {
+    color0 = "#092236",
+    color1 = "#ff5874",
+    color2 = "#c3ccdc",
+    color3 = "#1c1e26",
+    color6 = "#a1aab8",
+    color7 = "#828697",
+    color8 = "#ae81ff",
+}
 
-
-    -- lua line
-    local colors = {
-        color0 = "#092236",
-        color1 = "#ff5874",
-        color2 = "#c3ccdc",
-        color3 = "#1c1e26",
-        color6 = "#a1aab8",
-        color7 = "#828697",
-        color8 = "#ae81ff",
-    }
-
-    require('lualine').setup {
-        options = {
-            icons_enabled = true,
-            theme = '16color',
-            component_separators = { left = '|', right = ''},
-            section_separators = { left = '|', right = ''},
-            disabled_filetypes = {
-                statusline = {},
-                winbar = {},
+require('lualine').setup {
+    options = {
+        icons_enabled = true,
+        theme = '16color',
+        component_separators = { left = '|', right = ''},
+        section_separators = { left = '|', right = ''},
+        disabled_filetypes = {
+            statusline = {},
+            winbar = {},
+        },
+        ignore_focus = {},
+        always_divide_middle = true,
+        always_show_tabline = true,
+        globalstatus = false,
+        refresh = {
+            statusline = 1000,
+            tabline = 1000,
+            winbar = 1000,
+            refresh_time = 8, -- ~120fps
+            events = {
+                'WinEnter',
+                'BufEnter',
+                'BufWritePost',
+                'SessionLoadPost',
+                'FileChangedShellPost',
+                'VimResized',
+                'Filetype',
+                'CursorMoved',
+                'CursorMovedI',
+                'ModeChanged',
             },
-            ignore_focus = {},
-            always_divide_middle = true,
-            always_show_tabline = true,
-            globalstatus = false,
-            refresh = {
-                statusline = 1000,
-                tabline = 1000,
-                winbar = 1000,
-                refresh_time = 8, -- ~120fps
-                events = {
-                    'WinEnter',
-                    'BufEnter',
-                    'BufWritePost',
-                    'SessionLoadPost',
-                    'FileChangedShellPost',
-                    'VimResized',
-                    'Filetype',
-                    'CursorMoved',
-                    'CursorMovedI',
-                    'ModeChanged',
-                },
-            }
-        },
-        sections = {
-            lualine_a = {'mode'},
-            lualine_b = {'branch', 'diff', 'diagnostics'},
-            lualine_c = {'filename'},
-            lualine_x = {'filetype'}, --removed encoding and fileformat
-            lualine_y = {'progress'},
-            lualine_z = {'location'}
-        },
-        inactive_sections = {
-            lualine_a = {},
-            lualine_b = {},
-            lualine_c = {'filename'},
-            lualine_x = {'location'},
-            lualine_y = {},
-            lualine_z = {}
-        },
-        tabline = {},
-        winbar = {},
-        inactive_winbar = {},
-        extensions = {}
-    }
+        }
+    },
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {'filename'},
+        lualine_x = {'filetype'},
+        lualine_y = {'progress'},
+        lualine_z = {'location'}
+    },
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {'filename'},
+        lualine_x = {'location'},
+        lualine_y = {},
+        lualine_z = {}
+    },
+    tabline = {},
+    winbar = {},
+    inactive_winbar = {},
+    extensions = {}
+}
+
+-- transparent background
+vim.cmd [[
+highlight Normal guibg=none
+highlight NonText guibg=none
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+]]
+
+-- keymaps
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+
