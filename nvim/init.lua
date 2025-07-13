@@ -3,14 +3,13 @@ vim.opt.relativenumber = true
 
 vim.opt.incsearch = true      
 vim.o.inccommand = 'split'
-vim.o.cursorline = true
 
 vim.cmd('filetype plugin on')
 vim.o["termguicolors"] = false
 
 vim.o.expandtab = true 
-vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
-vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
+vim.o.softtabstop = 4 
+vim.o.shiftwidth = 4 
 
 vim.o.undofile = true
 
@@ -28,13 +27,13 @@ vim.o.splitbelow = true
 vim.cmd('let g:netrw_winsize = 30')
 vim.cmd('let g:netrw_keepdir = 0')
 
--- Clear highlights on search when pressing <Esc> in normal mode
+-- clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 --  See `:help vim.hl.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight when yanking (copying) text',
-	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+	group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
 	callback = function()
 		vim.hl.on_yank()
 	end,
@@ -76,6 +75,7 @@ require("lazy").setup({
 		-- add plugins
 		'tpope/vim-fugitive',
 		'nvim-treesitter/nvim-treesitter',
+                build = ":TSUpdate",
 		'nvim-lualine/lualine.nvim',
 		"xzbdmw/colorful-menu.nvim",
 		'davidgranstrom/scnvim',
@@ -91,20 +91,43 @@ require("lazy").setup({
 		checker = { enabled = true },
 	})
 
-	-- treesitter
+	-- treesitter & lsp
 	require'nvim-treesitter.configs'.setup {
 		ensure_installed = { "asm", "c", "cpp", "lua", "vim", "vimdoc",  "markdown", "markdown_inline", "swift", "rust", "zig" },
 		sync_install = false,
-		auto_install = true,
+		auto_install = false,
 		highlight = {
 			enable = true,
 			additional_vim_regex_highlighting = false,
 		},
 	}
+        vim.lsp.enable('treesitter')
 
-	vim.lsp.enable('treesitter')
+        vim.cmd[[set completeopt+=menuone,noselect,popup]]
+        vim.api.nvim_create_autocmd('LspAttach', {
+            group = vim.api.nvim_create_augroup('my.lsp', {}),
+            callback = function(args)
+                local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+                if client:supports_method('textDocument/implementation') then
+                    vim.keymap.set('n', 'gD', vim.lsp.buf.definition, opts)
+                    vim.keymap.set('n', 'gs', vim.lsp.buf.declaration, opts)
+                    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+                    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+                    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+                end
+                if client:supports_method('textDocument/formatting') then
+                    vim.api.nvim_create_autocmd('BufWritePre', {
+                        group = vim.api.nvim_create_augroup('my.lsp', {clear=false}),
+                        buffer = args.buf,
+                        callback = function()
+                            vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+                        end,
+                    })
+                end
+            end,
+        })
 
-	-- lua line
+        -- lua line
 	local colors = {
 		color0 = "#092236",
 		color1 = "#ff5874",
@@ -186,10 +209,10 @@ require("lazy").setup({
                 ['<M-CR>'] = map('postwin.toggle', 'i'),
                 ['<M-L>'] = map('postwin.clear', {'n', 'i'}),
                 ['<C-k>'] = map('signature.show', {'n', 'i'}),
-                ['<F12>'] = map('sclang.hard_stop', {'n', 'x', 'i'}),
+                ['<M-q>'] = map('sclang.hard_stop', {'n', 'x', 'i'}),
                 ['<leader>st'] = map(scnvim.start),
                 ['<leader>sk'] = map(scnvim.recompile),
-                ['<F1>'] = map_expr('s.boot'),
+                ['<M-s>'] = map_expr('s.boot'),
                 ['<F2>'] = map_expr('s.meter'),
             },
         }
@@ -202,6 +225,8 @@ require("lazy").setup({
 	highlight Normal ctermbg=none
 	highlight NonText ctermbg=none
 	]]
+
+        vim.o.cursorline = true
 
 	-- keymaps
 	vim.g.mapleader = " "
