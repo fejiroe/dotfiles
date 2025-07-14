@@ -2,23 +2,22 @@ font-size = 14
 
 confirm-close-surface = false
 mouse-hide-while-typing = true
-#cursor-invert-fg-bg = true
 
 window-decoration = none
 #macos-icon = xray
 #macos-icon-frame = plastic
 
-#Homebrew, Aura, Fahrenheit, HaX0R_BLUE/R3D, Konsolas, Mathias, matrix, PaulMillr, ENCOM, Elementary,
 #Tomorrow Night Burns, Glacier, IC_Green_PPL
-#light: CLRS,Github, Github-Light-Default, xcodelight, zenbones
-
-theme = dark:Aura, light:xcodelight
-custom-shader-animation = always
+theme = dark:Aura, light:zenones
 font-family = "MesloLGL Nerd Font Mono"
 
-background-opacity = 0.39
+background-opacity = 0.51
 background-blur-radius = 12
 background = #000000
+
+keybind = cmd+r=reload_config
+keybind = cmd+,=text:ghosttyrc
+
 
 
 

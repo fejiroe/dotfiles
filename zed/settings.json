@@ -1,0 +1,75 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+//
+{
+  "vim_mode": true,
+  "relative_line_numbers": true,
+  "features": {
+    "edit_prediction_provider": "none"
+  },
+  "theme": "Aura Dark",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "ui_font_size": 16,
+  "ui_font_family": "MesloLGL Nerd Font Mono",
+  "buffer_font_size": 16,
+  "unnecessary_code_fade": 0.5,
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false,
+    "agent_review": false
+  },
+  "tab_bar": {
+    "show_tab_bar_buttons": true
+  },
+  "tabs": {
+    "show_close_button": "hover"
+  },
+  "terminal": {
+    // "font_family": "Apple Color Emoji"
+    "font_family": "MesloLGL Nerd Font Mono"
+  },
+
+  // custom theming,  opacity is stored in the last two digits
+  "experimental.theme_overrides": {
+    // "renamed.background": "#00000F20",
+    // "search.match_background": "#000FFF20",
+    // "ghost_element.background": "#00000010",
+    // "ghost_element.hover": "#00000099",
+    "background.appearance": "blurred",
+    "background": "#00000061", // so much work to match ghostty
+    "editor.background": "#ffffff00",
+    "editor.gutter.background": "#00000000",
+    "title_bar.background": "#00000066",
+    "toolbar.background": "#00000000",
+    "terminal.background": "#00000000",
+    "status_bar.background": "#00000066", // bottom of screen
+    "tab.active_background": "#00000000",
+    "tab.inactive_background": "#00000000",
+    "tab_bar.background": "#00000000",
+    "panel.background": "#00000000", // also affects terminal
+    "border": "#00000000", // nice
+    // "border.variant": "#00000000",
+    "scrollbar.track.border": "#00000000",
+    "scrollbar.track.background": "#00000000",
+    "scrollbar.thumb.background": "#00000000",
+    "scrollbar.thumb.border": "#00000000"
+    // "editor.line_highlight": "#00000000",
+    // "editor.active_line.background": "#00000000",
+    // "editor.selection.background": "#00000000",
+    // "editor.selection.foreground": "#00000000",
+    // "editor.selection.border": "#00000000",
+    // "editor.selection.inactive.foreground": "#00000000",
+    // "editor.selection.inactive.border": "#00000000",
+    //"element.background": "#fffffff22"
+  }
+}

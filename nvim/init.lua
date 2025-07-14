@@ -5,7 +5,7 @@ vim.opt.incsearch = true
 vim.o.inccommand = 'split'
 
 vim.cmd('filetype plugin on')
-vim.o["termguicolors"] = false
+vim.o["termguicolors"] = true
 
 vim.o.expandtab = true 
 vim.o.softtabstop = 4 
@@ -28,10 +28,7 @@ vim.o.splitbelow = true
 vim.cmd('let g:netrw_winsize = 30')
 vim.cmd('let g:netrw_keepdir = 0')
 
--- clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
---  See `:help vim.hl.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight when yanking (copying) text',
 	group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
@@ -75,13 +72,14 @@ require("lazy").setup({
 		-- add plugins
 		'tpope/vim-fugitive',
 		'nvim-treesitter/nvim-treesitter',
-                build = ":TSUpdate",
 		'nvim-lualine/lualine.nvim',
-		"xzbdmw/colorful-menu.nvim",
-		'davidgranstrom/scnvim',
+                'davidgranstrom/scnvim',
                 'saghen/blink.cmp',
+		'xzbdmw/colorful-menu.nvim',
+                'helbing/aura.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons' }
 		},
+                opts = {colorscheme = 'aura'},
 		ui = {
 			border = "single",
 			size = {
@@ -97,20 +95,33 @@ require("lazy").setup({
             version = '1.*',
             completion = {
                 menu = {
+                    draw = {
+                        columns = { { "kind_icon" }, { "label", gap = 1 } },
+                        components = {
+                            label = {
+                                text = function(ctx)
+                                    return require("colorful-menu").blink_components_text(ctx)
+                                end,
+                                highlight = function(ctx)
+                                    return require("colorful-menu").blink_components_highlight(ctx)
+                                end,
+                            },
+                        },
+                    },
                     border = 'single',
                     auto_show = false,
                 },
                 documentation = {window ={border = 'single' }},
-            },
-            fuzzy = { implementation = 'rust' },
-            ghost_text = { enabled = true },
-            keymap = {
-                preset = 'default',
-                ['<C-c>'] = {'show'},
+                    },
+                    fuzzy = { implementation = 'prefer_rust'},
+                    keymap = {
+                        preset = 'default',
+                        ['<C-c>'] = {'show'},
             },
         }
-
+    
 	require'nvim-treesitter.configs'.setup {
+                build = ":TSUpdate",
 		ensure_installed = { "asm", "c", "cpp", "lua", "vim", "vimdoc",  "markdown", "markdown_inline", "swift", "rust", "zig" },
 		sync_install = false,
 		auto_install = false,
@@ -121,31 +132,7 @@ require("lazy").setup({
 	}
         vim.lsp.enable('treesitter')
 
-        --vim.cmd[[set completeopt+=menuone,noselect,popup]]
-        vim.api.nvim_create_autocmd('LspAttach', {
-            group = vim.api.nvim_create_augroup('my.lsp', {}),
-            callback = function(args)
-                local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-                if client:supports_method('textDocument/implementation') then
-                    vim.keymap.set('n', 'gD', vim.lsp.buf.definition, opts)
-                    vim.keymap.set('n', 'gs', vim.lsp.buf.declaration, opts)
-                    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-                    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-                    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-                    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-                    vim.keymap.set('n', 'grn', vim.lsp.buf.rename, opts)
-                end
-                if client:supports_method('textDocument/formatting') then
-                    vim.api.nvim_create_autocmd('BufWritePre', {
-                        group = vim.api.nvim_create_augroup('my.lsp', {clear=false}),
-                        buffer = args.buf,
-                        callback = function()
-                            vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
-                        end,
-                    })
-                end
-            end,
-        })
+        vim.cmd[[set completeopt+=menuone,noselect,popup]]
 
         -- lua line
 	local colors = {
@@ -161,7 +148,7 @@ require("lazy").setup({
 	require('lualine').setup {
 		options = {
 			icons_enabled = true,
-			theme = '16color',
+			theme = 'auto',
 			component_separators = { left = '|', right = ''},
 			section_separators = { left = '|', right = ''},
 			disabled_filetypes = {
@@ -235,18 +222,28 @@ require("lazy").setup({
                 ['<M-s>'] = map_expr('s.boot'),
                 ['<F2>'] = map_expr('s.meter'),
             },
+            postwin = {
+                size = 42,
+            },
+            statusline = {
+                poll_interval = 1,
+            },
         }
         vim.g.scnvim_postwin_syntax_hl = 1
 
-	-- transparent background
+	-- theming
+        vim.cmd [[:colorscheme aura]]
 	vim.cmd [[
 	highlight Normal guibg=none
 	highlight NonText guibg=none
 	highlight Normal ctermbg=none
 	highlight NonText ctermbg=none
+        highlight NormalFloat guibg=none
 	]]
 
         vim.cmd[[:highlight Pmenu guibg=#000000 cterm=NONE term=NONE]] 
+        --vim.api.nvim_set_hl(dark, 'CursorLine', { underline = true })
+        vim.cmd[[:highlight CursorLine guibg=#111333 blend=100]]
 
 	-- keymaps
 	vim.g.mapleader = " "

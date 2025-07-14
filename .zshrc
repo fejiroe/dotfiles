@@ -26,7 +26,7 @@ export XDG_RUNTIME_DIR="$TMPDIR/runtime-$UID"
 export XDG_STATE_HOME="$HOME/.local/state"
 export PATH="$XDG_BIN_HOME:$PATH"
 
-WWW_HOME='http://duckduckgo.com'
+WWW_HOME='http://ecosia.org'
 export WWW_HOME
 
 function y() {
@@ -40,5 +40,6 @@ function y() {
 
 alias vimrc="nvim ~/.config/nvim/init.lua"
 alias ghosttyrc="nvim ~/.config/ghostty/config"
+alias yabr="yabai --restart-service"
 
 eval "$(starship init zsh)"
