@@ -18,6 +18,7 @@ vim.schedule(function()
 end)
 
 vim.g.have_nerd_font = true
+vim.o.cursorline = true
 
 vim.o.showmode = false
 
@@ -41,7 +42,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 
 -- PLUGINS --
-
 
 local function scstatus()
 	if vim.bo.filetype == "supercollider" then
@@ -79,6 +79,7 @@ require("lazy").setup({
 		'nvim-lualine/lualine.nvim',
 		"xzbdmw/colorful-menu.nvim",
 		'davidgranstrom/scnvim',
+                'saghen/blink.cmp',
 		dependencies = { 'nvim-tree/nvim-web-devicons' }
 		},
 		ui = {
@@ -91,7 +92,24 @@ require("lazy").setup({
 		checker = { enabled = true },
 	})
 
-	-- treesitter & lsp
+	-- treesitter, lsp & blinkcmp
+        require('blink.cmp').setup {
+            version = '1.*',
+            completion = {
+                menu = {
+                    border = 'single',
+                    auto_show = false,
+                },
+                documentation = {window ={border = 'single' }},
+            },
+            fuzzy = { implementation = 'rust' },
+            ghost_text = { enabled = true },
+            keymap = {
+                preset = 'default',
+                ['<C-c>'] = {'show'},
+            },
+        }
+
 	require'nvim-treesitter.configs'.setup {
 		ensure_installed = { "asm", "c", "cpp", "lua", "vim", "vimdoc",  "markdown", "markdown_inline", "swift", "rust", "zig" },
 		sync_install = false,
@@ -103,7 +121,7 @@ require("lazy").setup({
 	}
         vim.lsp.enable('treesitter')
 
-        vim.cmd[[set completeopt+=menuone,noselect,popup]]
+        --vim.cmd[[set completeopt+=menuone,noselect,popup]]
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('my.lsp', {}),
             callback = function(args)
@@ -114,6 +132,8 @@ require("lazy").setup({
                     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
                     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
                     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+                    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+                    vim.keymap.set('n', 'grn', vim.lsp.buf.rename, opts)
                 end
                 if client:supports_method('textDocument/formatting') then
                     vim.api.nvim_create_autocmd('BufWritePre', {
@@ -226,7 +246,7 @@ require("lazy").setup({
 	highlight NonText ctermbg=none
 	]]
 
-        vim.o.cursorline = true
+        vim.cmd[[:highlight Pmenu guibg=#000000 cterm=NONE term=NONE]] 
 
 	-- keymaps
 	vim.g.mapleader = " "
