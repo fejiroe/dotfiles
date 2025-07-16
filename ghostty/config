@@ -8,12 +8,15 @@ window-decoration = none
 #macos-icon-frame = plastic
 
 #Tomorrow Night Burns, Glacier, IC_Green_PPL
-theme = dark:Aura, light:zenones
+theme = dark:Aura, light:zenbones
 font-family = "MesloLGL Nerd Font Mono"
 
 background-opacity = 0.51
 background-blur-radius = 12
 background = #000000
+#custom-shader-animation = true
+#custom-shader = ghostty-shaders/cursor_smear.glsl 
+#custom-shader = ghostty-shaders/bloom.glsl
 
 keybind = cmd+r=reload_config
 keybind = cmd+,=text:ghosttyrc
