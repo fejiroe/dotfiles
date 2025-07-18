@@ -94,6 +94,7 @@ require("lazy").setup({
 
 -- treesitter, lsp & blinkcmp
 require('blink.cmp').setup {
+    version = '.*',
     completion = {
         menu = {
             draw = {
@@ -114,7 +115,7 @@ require('blink.cmp').setup {
         },
         documentation = {window ={border = 'single' }},
     },
-    fuzzy = { implementation = 'prefer_rust'},
+    fuzzy = { implementation = 'rust'},
     keymap = {
         preset = 'default',
         ['<C-c>'] = {'show'},

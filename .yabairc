@@ -1,10 +1,9 @@
 #!/usr/bin/env sh
-#source "$HOME/.config/colors.sh"
 #
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 yabai -m config \
-	menubar_opacity 1.0 \
+	menubar_opacity 0.0 \
 	mouse_follows_focus off \
 	focus_follows_mouse autofocus \
 	window_origin_display default \
