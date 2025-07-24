@@ -24,10 +24,10 @@ for i = 1, 10, 1 do
       y_offset = -1,
     },
     padding_right = 1,
-    padding_left = 1,
+    padding_left = 2,
     background = {
       color = colors.bg1,
-      border_width = 1,
+      border_width = 0,
       height = 26,
       border_color = colors.black,
     },
@@ -42,7 +42,8 @@ for i = 1, 10, 1 do
       color = colors.transparent,
       border_color = colors.white,
       height = 28,
-      border_width = 2
+      border_width = 1
+      --padding_left = 10
     }
   })
 
@@ -55,7 +56,6 @@ for i = 1, 10, 1 do
 
   local space_popup = sbar.add("item", {
     position = "popup." .. space.name,
-    padding_left= 5,
     padding_right= 0,
     background = {
       drawing = true,

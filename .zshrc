@@ -29,6 +29,9 @@ export PATH="$XDG_BIN_HOME:$PATH"
 WWW_HOME='http://ecosia.org'
 export WWW_HOME
 
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ENV_HINTS=1
+
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -40,6 +43,9 @@ function y() {
 
 alias vimrc="nvim ~/.config/nvim/init.lua"
 alias ghosttyrc="nvim ~/.config/ghostty/config"
+alias zshrc="nvim ~/.zshrc"
+alias yabairc="nvim ~/.yabairc"
 alias yabr="yabai --restart-service"
+alias sketchb="brew services restart sketchybar"
 
 eval "$(starship init zsh)"

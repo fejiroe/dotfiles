@@ -25,7 +25,7 @@ vim.o.showmode = false
 vim.o.splitright = true
 vim.o.splitbelow = true
 
-vim.cmd('let g:netrw_winsize = 30')
+vim.cmd('let g:netrw_winsize = 28')
 vim.cmd('let g:netrw_keepdir = 0')
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -89,12 +89,12 @@ require("lazy").setup({
             height = 0.81,
         },
     },
-    checker = { enabled = true },
+    checker = { enabled = true,
+    notify = false},
 })
 
 -- treesitter, lsp & blinkcmp
 require('blink.cmp').setup {
-    version = '.*',
     completion = {
         menu = {
             draw = {
@@ -124,7 +124,7 @@ require('blink.cmp').setup {
 
 require'nvim-treesitter.configs'.setup {
     build = ":TSUpdate",
-    ensure_installed = { "asm", "c", "cpp", "lua", "vim", "vimdoc",  "markdown", "markdown_inline", "swift", "rust", "zig" },
+    ensure_installed = { "asm", "bash", "c", "cpp", "lua", "vim", "vimdoc",  "markdown", "markdown_inline", "swift", "rust", "zig" },
     sync_install = false,
     auto_install = false,
     highlight = {
@@ -137,7 +137,6 @@ vim.lsp.enable('treesitter')
 vim.cmd[[set completeopt+=menuone,noselect,popup]]
 
 -- lua line
-
 require('lualine').setup {
     options = {
         icons_enabled = true,
@@ -222,6 +221,12 @@ require('telescope').setup({
     }
 })
 vim.api.nvim_set_hl(0, 'TelescopeNormal', {bg = 'none' })
+vim.api.nvim_set_hl(0, 'TelescopePromptPrefix', {bg = 'none' })
+vim.api.nvim_set_hl(0, 'TelescopePromptPromptTitle', {bg = 'none' })
+vim.api.nvim_set_hl(0, 'TelescopeSelection', {bg = 'none' })
+vim.api.nvim_set_hl(0, 'TelescopeMatching', {bg = 'none' })
+vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', {bg = 'none' })
+vim.api.nvim_set_hl(0, 'TelescopePreviewTitle', {bg = 'none' })
 
 -- supercollider
 local scnvim = require 'scnvim'
@@ -271,4 +276,13 @@ vim.cmd[[:highlight CursorLine guibg=#111333 blend=100]]
 -- keymaps
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+
+vim.keymap.set('n', '<leader>e', '<cmd>:Lexplore<cr>')
+vim.keymap.set('n', '<A-t>', '<cmd>:8sp +te<cr>')
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 

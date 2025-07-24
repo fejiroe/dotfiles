@@ -12,12 +12,12 @@ yabai -m config \
 	window_shadow on \
 	window_opacity on \
         window_animation_easing easeOutQuint \
-	window_animation_duration 1.00 \
+	window_animation_duration 1.50 \
 	insert_feedback_color 0xff5f5fd7 \
 	split_ratio 0.50 \
 	split_type auto \
 	auto_balance off \
-	top_padding 6 \
+	top_padding 8 \
 	bottom_padding 6 \
 	left_padding 6 \
 	right_padding 6 \
