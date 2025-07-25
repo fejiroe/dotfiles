@@ -37,6 +37,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- PLUGINS --
 
@@ -259,6 +261,19 @@ scnvim.setup {
 }
 vim.g.scnvim_postwin_syntax_hl = 1
 
+-- folds
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  callback = function()
+    if require("nvim-treesitter.parsers").has_parser() then
+      vim.opt.foldmethod = "expr"
+      vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+    else
+      vim.opt.foldmethod = "syntax"
+    end
+  end,
+})
+vim.opt.foldenable = false
+
 -- theming
 vim.cmd [[:colorscheme aura]]
 vim.cmd [[
@@ -274,9 +289,6 @@ vim.cmd[[:highlight CursorLine guibg=#111333 blend=100]]
 --vim.api.nvim_set_hl(dark, 'CursorLine', { underline = true })
 
 -- keymaps
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
 vim.keymap.set('n', '<leader>e', '<cmd>:Lexplore<cr>')
 vim.keymap.set('n', '<A-t>', '<cmd>:8sp +te<cr>')
 
