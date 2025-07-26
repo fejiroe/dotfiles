@@ -41,7 +41,7 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-alias vimrc="nvim ~/.config/nvim/init.lua"
+alias nvimrc="cd ~/.config/nvim/lua/ && nvim ."
 alias ghosttyrc="nvim ~/.config/ghostty/config"
 alias zshrc="nvim ~/.zshrc"
 alias yabairc="nvim ~/.yabairc"
@@ -49,3 +49,6 @@ alias yabr="yabai --restart-service"
 alias sketchb="brew services restart sketchybar"
 
 eval "$(starship init zsh)"
+
+
+#launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
