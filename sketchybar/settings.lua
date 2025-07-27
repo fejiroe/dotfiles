@@ -9,8 +9,8 @@ return {
 
   -- Alternatively, this is a font config for JetBrainsMono Nerd Font
    font = {
-     text = "iosevka", -- Used for text
-     numbers = "iosevka", -- Used for numbers
+     text = "MesloLGL Nerd Font Mono", -- Used for text
+     numbers = "MesloLGL Nerd Font Mono", -- Used for numbers
      style_map = {
        ["Regular"] = "Regular",
        ["Semibold"] = "Medium",

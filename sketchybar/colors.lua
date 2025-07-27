@@ -1,9 +1,9 @@
 return {
-  black = 0xaa181819,
+  black = 0xaa111111,
   white = 0xaae2e2e3,
-  red = 0xfffc5d7c,
+  red = 0xccfc3e9d,
   green = 0xff9ed072,
-  blue = 0xff76cce0,
+  blue = 0xcc36dcef,
   yellow = 0xffe7c664,
   orange = 0xfff39660,
   magenta = 0xffb39df3,

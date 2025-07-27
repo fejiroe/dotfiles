@@ -1,20 +1,18 @@
-font-size = 18
-font-family = "iosevka"
-font-feature = -dlig
+font-size = 15
+font-family = "MesloLGL Nerd Font Mono"
 
 confirm-close-surface = false
 mouse-hide-while-typing = true
 
 window-decoration = none
-
-theme = dark:Aura, light:IC_Green_PPL
+theme = Aura
 
 background-opacity = 0.51
 background-blur-radius = 12
 background = #000000
 custom-shader-animation = true
-custom-shader = ghostty-shaders/cursor_fade.glsl 
-custom-shader = ghostty-shaders/bloom.glsl
+custom-shader = ghostty-shaders/cursor_smear.glsl 
+#custom-shader = ghostty-shaders/bloom.glsl
 
 keybind = cmd+r=reload_config
 keybind = cmd+,=text:ghosttyrc

@@ -10,25 +10,27 @@ for i = 1, 10, 1 do
     space = i,
     icon = {
       font = { family = settings.font.numbers },
-      string = i,
-      padding_left = 8,
-      padding_right = 2,
+      --string = i,
+      string = "",
+      padding_left = 2,
+      padding_right = 1,
       color = colors.white,
-      highlight_color = colors.magenta,
+      highlight_color = colors.white, -- !!
     },
     label = {
-      padding_right = 12,
+      padding_right = 6,
+      padding_left = 2,
       color = colors.grey,
       highlight_color = colors.white,
       font = "sketchybar-app-font:Regular:16.0",
       y_offset = -1,
     },
-    padding_right = 1,
+    padding_right = 2,
     padding_left = 2,
     background = {
-      color = colors.bg1,
+      color = colors.black,
       border_width = 0,
-      height = 26,
+      height = 24,
       border_color = colors.black,
     },
     popup = { background = { border_width = 5, border_color = colors.black } }
@@ -75,7 +77,7 @@ for i = 1, 10, 1 do
       background = { border_color = selected and colors.black or colors.bg2 }
     })
     space_bracket:set({
-      background = { border_color = selected and colors.magenta or colors.bg2 }
+      background = { border_color = selected and colors.white or colors.bg2 } -- !!
     })
   end)
 
@@ -99,7 +101,6 @@ local space_window_observer = sbar.add("item", {
   updates = true,
 })
 
-
 space_window_observer:subscribe("space_windows_change", function(env)
   local icon_line = ""
   local no_app = true
@@ -111,11 +112,9 @@ space_window_observer:subscribe("space_windows_change", function(env)
   end
 
   if (no_app) then
-    icon_line = "—"
+    icon_line = ""
   end
   sbar.animate("tanh", 10, function()
     spaces[env.INFO.space]:set({ label = icon_line })
   end)
 end)
-
-

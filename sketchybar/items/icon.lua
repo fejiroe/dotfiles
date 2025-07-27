@@ -9,9 +9,8 @@ local apple = sbar.add("item", {
   icon = {
     font = { size = 16.0 },
     --string = icons.apple,
-    --string = "☪︎",
-    string = "ᚠ",
-    --string = " ",
+    --string = "ᚠ",
+    string = "ᚩ",
     padding_right = 8,
     padding_left = 8,
   },

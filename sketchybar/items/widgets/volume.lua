@@ -41,7 +41,7 @@ local volume_bracket = sbar.add("bracket", "widgets.volume.bracket", {
   volume_icon.name,
   volume_percent.name
 }, {
-  background = { color = colors.bg1 },
+  background = { color = colors.black },
   popup = { align = "center" }
 })
 
@@ -53,14 +53,14 @@ sbar.add("item", "widgets.volume.padding", {
 local volume_slider = sbar.add("slider", popup_width, {
   position = "popup." .. volume_bracket.name,
   slider = {
-    highlight_color = colors.blue,
+    highlight_color = colors.white,
     background = {
-      height = 6,
-      corner_radius = 3,
-      color = colors.bg2,
+      height = 12,
+      corner_radius = 0,
+      color = colors.black,
     },
     knob= {
-      string = "􀀁",
+      string = "",
       drawing = true,
     },
   },

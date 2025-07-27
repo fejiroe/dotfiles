@@ -11,15 +11,16 @@ return {
         local colors = {
             bg       = '#000000',
             fg       = '#bbc2cf',
-            yellow   = '#ECBE7B',
-            cyan     = '#0092f3',
+            white    = '#ffffff',
+            yellow   = '#efff10',
+            cyan     = '#00fbfc',
             darkblue = '#081633',
-            green    = '#11ffa8',
-            orange   = '#FF8800',
-            violet   = '#a9a1e1',
-            magenta  = '#a678dd',
-            blue     = '#118fef',
-            red      = '#ec5f67',
+            green    = '#01ffc8',
+            orange   = '#FF7810',
+            violet   = '#f9a1f1',
+            magenta  = '#9442ff',
+            blue     = '#115fef',
+            red      = '#ff0297',
         }
 
         local conditions = {
@@ -88,18 +89,18 @@ return {
             color = function()
                 -- auto change color according to neovims mode
                 local mode_color = {
-                    n = colors.magenta,
+                    n = colors.white,
                     i = colors.green,
-                    v = colors.blue,
+                    v = colors.red,
                     [''] = colors.blue,
-                    V = colors.blue,
+                    V = colors.magenta,
                     c = colors.red,
                     no = colors.red,
                     s = colors.orange,
                     S = colors.orange,
                     [''] = colors.orange,
                     ic = colors.yellow,
-                    R = colors.violet,
+                    R = colors.yellow,
                     Rv = colors.violet,
                     cv = colors.red,
                     ce = colors.red,
@@ -107,7 +108,7 @@ return {
                     rm = colors.cyan,
                     ['r?'] = colors.cyan,
                     ['!'] = colors.red,
-                    t = colors.red,
+                    t = colors.magenta,
                 }
                 return { fg = mode_color[vim.fn.mode()] }
             end,
@@ -168,20 +169,20 @@ return {
                 return msg
             end,
             icon = ' ',
-            color = { fg = '#ffffff', gui = 'bold' },
+            color = { fg = '#ffffff'},
         }
 
         ins_right {
             'o:encoding', -- option component same as &encoding in viml
-            fmt = string.upper, -- I'm not sure why it's upper case either ;)
+            fmt = string.upper, 
             cond = conditions.hide_in_width,
-            color = { fg = colors.green, gui = 'bold' },
+            color = {fg = colors.green},
         }
 
         ins_right {
             'fileformat',
             fmt = string.upper,
-            icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+            icons_enabled = false, 
             color = { fg = colors.green, gui = 'bold' },
         }
 

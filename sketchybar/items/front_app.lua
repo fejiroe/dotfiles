@@ -6,16 +6,22 @@ local front_app = sbar.add("item", "front_app", {
     icon = { drawing = false },
     label = {
         font = {
-            family = "iosevka",
+            family = "Meslo LGL Nerdfont Mono",
             style = "Bold",
-            size = 16.0,
+            size = 16.6,
         },
+        color = colors.white,
     },
     updates = true,
 })
 
 front_app:subscribe("front_app_switched", function(env)
-  front_app:set({ label = { string = env.INFO } })
+    if (env.INFO == 'Finder')
+        then
+            front_app:set({label = { string = " " }})
+        else
+            front_app:set({ label = { string = env.INFO } })
+        end
 end)
 
 front_app:subscribe("mouse.clicked", function(env)
