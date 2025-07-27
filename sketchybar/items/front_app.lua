@@ -6,7 +6,7 @@ local front_app = sbar.add("item", "front_app", {
     icon = { drawing = false },
     label = {
         font = {
-            family = "Meslo LGL Nerd Font Mono",
+            family = "iosevka",
             style = "Bold",
             size = 16.0,
         },

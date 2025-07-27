@@ -25,7 +25,7 @@ vim.o.showmode = false
 vim.o.splitright = true
 vim.o.splitbelow = true
 
-vim.cmd('let g:netrw_winsize = 24')
+vim.cmd('let g:netrw_winsize = 18')
 vim.cmd('let g:netrw_keepdir = 0')
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
