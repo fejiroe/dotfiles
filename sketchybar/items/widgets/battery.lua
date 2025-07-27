@@ -8,9 +8,8 @@ local battery = sbar.add("item", "widgets.battery", {
     font = {
       style = settings.font.style_map["Regular"],
       size = 18.0,
-      padding_left = 0,
-      padding_right = 2,
-      y_offset = - 2,
+      padding_left = 2,
+      padding_right = 0,
     }
   },
   label = { font = { family = settings.font.numbers } },
@@ -23,7 +22,7 @@ local remaining_time = sbar.add("item", {
   icon = {
     string = "Time remaining:",
     width = 100,
-    align = "left"
+    align = "left",
   },
   label = {
     string = "??:??h",
@@ -60,6 +59,7 @@ battery:subscribe({"routine", "power_source_change", "system_woke"}, function()
       elseif found and charge > 40 then
         --icon = icons.battery._50
         icon = "󰁽"
+        color = colors.yellow
       elseif found and charge > 20 then
         --icon = icons.battery._25
         icon = "󰁻"
