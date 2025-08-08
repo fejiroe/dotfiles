@@ -2,14 +2,14 @@ local colors = require("colors")
 local settings = require("settings")
 
 local front_app = sbar.add("item", "front_app", {
-    position = right,
+    position = "left",
     display = "active",
     icon = { drawing = false },
     label = {
         font = {
             family = "Meslo LGL Nerdfont Mono",
             style = "Bold",
-            size = 16.6,
+            size = 18.0,
         },
         color = colors.white,
     },

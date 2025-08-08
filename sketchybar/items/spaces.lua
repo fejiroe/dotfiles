@@ -13,7 +13,7 @@ for i = 1, 10, 1 do
       --string = i,
       string = "",
       padding_left = 2,
-      padding_right = 1,
+      padding_right = 2,
       color = colors.white,
       highlight_color = colors.white, -- !!
     },
@@ -33,6 +33,7 @@ for i = 1, 10, 1 do
       height = 24,
       border_color = colors.black,
     },
+    position = "left",
     popup = { background = { border_width = 5, border_color = colors.black } }
   })
 
@@ -44,8 +45,8 @@ for i = 1, 10, 1 do
       color = colors.transparent,
       border_color = colors.white,
       height = 28,
-      border_width = 1
-      --padding_left = 10
+      --padding_right = 10,
+      border_width = 1,
     }
   })
 
@@ -53,7 +54,7 @@ for i = 1, 10, 1 do
   sbar.add("space", "space.padding." .. i, {
     space = i,
     script = "",
-    width = settings.group_paddings,
+    width = settings.group_paddings - 2,
   })
 
   local space_popup = sbar.add("item", {
@@ -77,8 +78,9 @@ for i = 1, 10, 1 do
       background = { border_color = selected and colors.black or colors.bg2 }
     })
     space_bracket:set({
-      background = { border_color = selected and colors.white or colors.bg2 } -- !!
-    })
+        background = { border_color = selected and colors.white or colors.bg2 }, -- !!,
+        padding_left = 20,
+      })
   end)
 
   space:subscribe("mouse.clicked", function(env)

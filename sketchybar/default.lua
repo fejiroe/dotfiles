@@ -33,7 +33,7 @@ sbar.default({
     image = {
       corner_radius = 0,
       border_color = colors.white,
-      border_width = 1
+      border_width = 0
     }
   },
   popup = {
@@ -44,7 +44,7 @@ sbar.default({
       color = colors.black,
       shadow = { drawing = true },
     },
-    blur_radius = 10,
+    blur_radius = 12,
   },
   padding_left = 2,
   padding_right = 2,
