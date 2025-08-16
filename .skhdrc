@@ -1,29 +1,29 @@
 # window navigation
-lalt - h : yabai -m window --focus west  || yabai -m display --focus west
-lalt - j : yabai -m window --focus south || yabai -m display --focus south
-lalt - k : yabai -m window --focus north || yabai -m display --focus north
-lalt - l : yabai -m window --focus east  || yabai -m display --focus east
+ralt - h : yabai -m window --focus west  || yabai -m display --focus west
+ralt - n : yabai -m window --focus south || yabai -m display --focus south
+ralt - e : yabai -m window --focus north || yabai -m display --focus north
+ralt - i : yabai -m window --focus east  || yabai -m display --focus east
 
 # moving windows in spaces
-shift + lalt - h : yabai -m window --warp west || $(yabai -m window --display west && sketchybar --trigger windows_on_spaces && yabai -m display --focus west && yabai -m window --warp last) || yabai -m window --move rel:-10:0
-shift + lalt - j : yabai -m window --warp south || $(yabai -m window --display south && sketchybar --trigger windows_on_spaces && yabai -m display --focus south) || yabai -m window --move rel:0:10
-shift + lalt - k : yabai -m window --warp north || $(yabai -m window --display north && sketchybar --trigger windows_on_spaces && yabai -m display --focus north) || yabai -m window --move rel:0:-10
-shift + lalt - l : yabai -m window --warp east || $(yabai -m window --display east && sketchybar --trigger windows_on_spaces && yabai -m display --focus east && yabai -m window --warp first) || yabai -m window --move rel:10:0
+shift + ralt - h : yabai -m window --warp west || $(yabai -m window --display west && sketchybar --trigger windows_on_spaces && yabai -m display --focus west && yabai -m window --warp last) || yabai -m window --move rel:-10:0
+shift + ralt - n : yabai -m window --warp south || $(yabai -m window --display south && sketchybar --trigger windows_on_spaces && yabai -m display --focus south) || yabai -m window --move rel:0:10
+shift + ralt - e : yabai -m window --warp north || $(yabai -m window --display north && sketchybar --trigger windows_on_spaces && yabai -m display --focus north) || yabai -m window --move rel:0:-10
+shift + ralt - i : yabai -m window --warp east || $(yabai -m window --display east && sketchybar --trigger windows_on_spaces && yabai -m display --focus east && yabai -m window --warp first) || yabai -m window --move rel:10:0
 
 ## Resize (ctrl + lalt - ...)
-ctrl + lalt - h : yabai -m window --resize left:100:0 || yabai -m window --resize left:100:0
-ctrl + lalt - j    : yabai -m window --resize top:-100:0 || yabai -m window --resize left:-100:0
-ctrl + lalt - k    : yabai -m window --resize bottom:0:100 || yabai -m window --resize top:0:100
-ctrl + lalt - l    : yabai -m window --resize right:0:-100 || yabai -m window --resize top:0:-100
+ctrl + ralt - n : yabai -m window --resize left:100:0 || yabai -m window --resize left:100:0
+ctrl + ralt - e    : yabai -m window --resize top:-100:0 || yabai -m window --resize left:-100:0
+ctrl + ralt - h    : yabai -m window --resize bottom:0:100 || yabai -m window --resize top:0:100
+ctrl + ralt - i    : yabai -m window --resize right:0:-100 || yabai -m window --resize top:0:-100
 
 # equalize size of windows
-shift + lalt - b : yabai -m space --balance
+shift + ralt - b : yabai -m space --balance
 # toggle split orientation of the selected windows node
-shift + lalt - s : yabai -m window --toggle split
+shift + ralt - s : yabai -m window --toggle split
 # enable / disable gaps in current workspace
-ctrl + lalt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
+ctrl + ralt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 
-# tirminal window
+# terminal window
 alt - space : open -n /Applications/Ghostty.app
 alt - z : open -n /Applications/Zen.app
 #open apps

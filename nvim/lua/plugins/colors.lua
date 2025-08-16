@@ -1,13 +1,13 @@
 return {
-    'helbing/aura.nvim',
+    --'helbing/aura.nvim',
     --'baliestri/aura-theme',
-    --'miikanissi/modus-themes.nvim',
+    'miikanissi/modus-themes.nvim',
     --'maxmx03/fluoromachine.nvim',
     --'olivercederborg/poimandres.nvim',
-    priority = 1000,
+    priority = 2000,
     config = function()
-        --vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
-        vim.cmd([[colorscheme aura]])
+        --vim.cmd([[colorscheme aura]])
+        vim.cmd([[colorscheme modus_vivendi]])
         vim.cmd [[
         highlight Normal guibg=none
         highlight NonText guibg=none

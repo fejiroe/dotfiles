@@ -44,6 +44,7 @@ function y() {
 alias nvimrc="cd ~/.config/nvim/lua/ && nvim ."
 alias ghosttyrc="nvim ~/.config/ghostty/config"
 alias yabairc="nvim ~/.yabairc"
+alias skhdrc="nvim ~/.skhdrc"
 alias yabr="yabai --restart-service"
 alias sketchyrc="cd ~/.config/sketchybar/ && nvim ."
 alias sketchr="brew services restart sketchybar"

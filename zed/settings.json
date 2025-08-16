@@ -46,16 +46,16 @@
     // "ghost_element.background": "#00000010",
     // "ghost_element.hover": "#00000099",
     "background.appearance": "blurred",
-    "background": "#00000061", // so much work to match ghostty
+    "background": "#00000061",
     "editor.background": "#ffffff00",
-    "editor.gutter.background": "#00000000",
-    "title_bar.background": "#00000066",
+    "editor.gutter.background": "#00000011",
+    "title_bar.background": "#00000086",
     "toolbar.background": "#00000000",
     "terminal.background": "#00000000",
     "status_bar.background": "#00000066", // bottom of screen
     "tab.active_background": "#00000000",
     "tab.inactive_background": "#00000000",
-    "tab_bar.background": "#00000000",
+    "tab_bar.background": "#00000011",
     "panel.background": "#00000000", // also affects terminal
     "border": "#00000000", // nice
     // "border.variant": "#00000000",
