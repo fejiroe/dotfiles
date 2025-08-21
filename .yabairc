@@ -18,7 +18,7 @@ yabai -m config \
 	split_type auto \
 	auto_balance off \
 	top_padding 15 \
-	bottom_padding 12 \
+	bottom_padding 15 \
 	left_padding 15 \
 	right_padding 15 \
 	window_gap 6 \

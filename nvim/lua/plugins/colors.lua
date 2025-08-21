@@ -5,8 +5,12 @@ return {
     --'maxmx03/fluoromachine.nvim',
     --'olivercederborg/poimandres.nvim',
     priority = 2000,
+    
     config = function()
         --vim.cmd([[colorscheme aura]])
+        require('modus-themes').setup({
+        transparent = true,
+        })
         vim.cmd([[colorscheme modus_vivendi]])
         vim.cmd [[
         highlight Normal guibg=none

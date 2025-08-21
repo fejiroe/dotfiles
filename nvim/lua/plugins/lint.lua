@@ -5,8 +5,7 @@ return {
     local lint = require("lint")
  
     lint.linters_by_ft = {
-      cpp = { "clangtidy" },
-      rust = { "clippy" },
+      cpp = { "cppcheck" },
       swift = { "swiftlint" },
     }
  
