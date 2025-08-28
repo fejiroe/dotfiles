@@ -28,9 +28,4 @@ yabai -m config \
 	mouse_action2 resize \
 	mouse_drop_action swap
 
-#yabai -m rule --add app="^(System Settings|System Information|Activity Monitor|FaceTime|Screen Sharing|TinkerTool)$" manage=off
-yabai -m rule --add --apply app="qutebrowser" title!="^$" role="AXWindow" subrole="AXDialog" manage=on
-
 echo "yabai configuration loaded.."
-
-

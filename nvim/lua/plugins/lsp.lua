@@ -1,13 +1,11 @@
-return {
-    'neovim/nvim-lspconfig',
+return { 'neovim/nvim-lspconfig',
     config = function()
         local lspconfig = require('lspconfig')
         lspconfig.sourcekit.setup {}
         lspconfig['clangd'].setup {
-capabilities = capabilities,
-cmd = { "clangd", '--background-index', '--clang-tidy' }
-}
-
+            capabilities = capabilities,
+            cmd = { "clangd", '--background-index', '--clang-tidy' },
+        }
         vim.api.nvim_create_autocmd('LspAttach', {
             desc = 'LSP Actions',
             callback = function(args)

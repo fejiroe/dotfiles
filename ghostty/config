@@ -8,8 +8,8 @@ window-decoration = none
 #macos-titlebar-style = hidden
 theme = Aura
 
-background-opacity = 0.42
-background-blur-radius = 12
+background-opacity = 0.51
+background-blur-radius = 18
 background = #000000
 custom-shader-animation = true
 custom-shader = ghostty-shaders/cursor_smear.glsl 
