@@ -1,0 +1,18 @@
+font-size = 14
+font-family = "MesloLGL Nerd Font Mono"
+
+confirm-close-surface = false
+mouse-hide-while-typing = true
+
+window-decoration = none
+theme = Chester
+background = #000000
+background-opacity = 0.21
+background-blur-radius = 18
+custom-shader-animation = false
+
+keybind = ctrl+r=reload_config
+
+
+
+

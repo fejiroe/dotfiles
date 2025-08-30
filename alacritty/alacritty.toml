@@ -1,0 +1,9 @@
+[general]
+import = [
+	"~/.config/alacritty/themes/themes/monokai_charcoal.toml"
+]
+
+[window]
+decorations = "None"
+opacity = 0.27
+blur = true
