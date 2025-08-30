@@ -1,5 +1,5 @@
 return {
-  black = 0xaa111111,
+  black = 0xaa000000,
   white = 0xaae2e2e3,
   red = 0xccfc3e9d,
   green = 0xcc9ee0a2,
