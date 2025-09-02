@@ -3,9 +3,7 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons'},
     config = function()
         -- ! based on gleipnir evilline
-        
         local lualine = require('lualine')
-
         -- Color table for highlights
         -- stylua: ignore
         local colors = {
@@ -43,6 +41,7 @@ return {
                 -- Disable sections and component separators
                 component_separators = '',
                 section_separators = '',
+                globalstatus = false,
                 theme = {
                     -- We are going to use lualine_c an lualine_x as left and
                     -- right section. Both are highlighted by c theme .  So we
@@ -51,18 +50,7 @@ return {
                     inactive = { c = { fg = colors.fg, bg = colors.bg } },
                 },
             },
-            sections = {
-                -- these are to remove the defaults
-                lualine_a = {},
-                lualine_b = {},
-                lualine_y = {},
-                lualine_z = {},
-                -- These will be filled later
-                lualine_c = {},
-                lualine_x = {},
-            },
-            inactive_sections = {
-                -- these are to remove the defaults
+            winbar = {
                 lualine_a = {},
                 lualine_b = {},
                 lualine_y = {},
@@ -70,16 +58,26 @@ return {
                 lualine_c = {},
                 lualine_x = {},
             },
+            inactive_winbar = {
+                lualine_a = {},
+                lualine_b = {},
+                lualine_y = {},
+                lualine_z = {},
+                lualine_c = {},
+                lualine_x = {},
+            },
+            sections = {},
+            inactive_sections = {},
         }
 
         -- Inserts a component in lualine_c at left section
         local function ins_left(component)
-            table.insert(config.sections.lualine_c, component)
+            table.insert(config.winbar.lualine_c, component)
         end
 
         -- Inserts a component in lualine_x at right section
         local function ins_right(component)
-            table.insert(config.sections.lualine_x, component)
+            table.insert(config.winbar.lualine_x, component)
         end
 
         ins_left {
@@ -112,9 +110,8 @@ return {
                 }
                 return { fg = mode_color[vim.fn.mode()] }
             end,
-            padding = { left = 0, right = 1 }, -- We don't need space before this
+            padding = { left = 0, right = 0 }, 
         }
-
         
         ins_left {
             -- filesize component
@@ -142,14 +139,6 @@ return {
                 info = { fg = colors.cyan },
             },
         }
-
-        -- Insert mid section. You can make any number of sections in neovim :)
-        ins_left {
-            function()
-                return '%='
-            end,
-        }
-
         -- components to right sections
         ins_right {
             -- Lsp server name .
@@ -203,5 +192,6 @@ return {
             cond = conditions.hide_in_width,
         }
         lualine.setup(config)
+        lualine.hide({place = {'statusline'}})
     end
 }
