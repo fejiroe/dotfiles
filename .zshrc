@@ -42,15 +42,15 @@ function y() {
 }
 
 alias nvimrc="cd ~/.config/nvim/lua/ && nvim ."
-alias ghosttyrc="nvim ~/.config/ghostty/config"
+alias termrc="nvim ~/.config/wezterm/wezterm.lua"
 alias yabairc="nvim ~/.yabairc"
 alias skhdrc="nvim ~/.skhdrc"
+alias zshrc="nvim ~/.zshrc"
 alias yabr="yabai --restart-service"
 alias sketchyrc="cd ~/.config/sketchybar/ && nvim ."
 alias sketchr="brew services restart sketchybar"
-alias brewski="brew update && brew upgrade && brew cleanup"
+#alias brewski="brew update && brew upgrade && brew cleanup"
 
 eval "$(starship init zsh)"
-
 
 #launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &

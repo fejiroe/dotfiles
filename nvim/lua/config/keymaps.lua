@@ -1,5 +1,5 @@
 vim.keymap.set('n', '<leader>e', '<cmd>:Lexplore<cr>')
-vim.keymap.set('n', '<leader>q', '<cmd>:q!<cr>')
+vim.keymap.set('n', '<leader>q', '<cmd>:q<cr>')
 vim.keymap.set('n', '<leader>w', '<cmd>:w<cr>')
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })

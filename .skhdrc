@@ -24,6 +24,5 @@ shift + alt - s : yabai -m window --toggle split
 ctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 
 # apps
-alt - space : open -n /Applications/Ghostty.app
+alt - space : open -n /Applications/WezTerm.app
 shift + alt - space : open -n /Applications/jurf.app
-alt - z : open -n /Applications/Zen.app
