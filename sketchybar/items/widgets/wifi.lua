@@ -15,7 +15,6 @@ local wifi_up = sbar.add("item", "widgets.wifi1", {
   icon = {
     padding_right = 0,
     font = {
-      style = settings.font.style_map["Bold"],
       size = 9.0,
     },
     string = icons.wifi.upload,
@@ -23,7 +22,6 @@ local wifi_up = sbar.add("item", "widgets.wifi1", {
   label = {
     font = {
       family = settings.font.numbers,
-      style = settings.font.style_map["Bold"],
       size = 9.0,
     },
     color = colors.red,
@@ -38,7 +36,6 @@ local wifi_down = sbar.add("item", "widgets.wifi2", {
   icon = {
     padding_right = 0,
     font = {
-      style = settings.font.style_map["Bold"],
       size = 9.0,
     },
     string = icons.wifi.download,
@@ -46,7 +43,6 @@ local wifi_down = sbar.add("item", "widgets.wifi2", {
   label = {
     font = {
       family = settings.font.numbers,
-      style = settings.font.style_map["Bold"],
       size = 9.0,
     },
     color = colors.blue,
@@ -66,7 +62,8 @@ local wifi_bracket = sbar.add("bracket", "widgets.wifi.bracket", {
   wifi_up.name,
   wifi_down.name
 }, {
-  background = { color = colors.black },
+  background = { color = colors.transparent,
+      border_color = colors.transparent},
   popup = { align = "center", height = 30 }
 })
 
@@ -83,7 +80,6 @@ local ssid = sbar.add("item", {
   label = {
     font = {
       size = 15,
-      style = settings.font.style_map["Bold"]
     },
     max_chars = 18,
     string = "????????????",

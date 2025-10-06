@@ -2,7 +2,7 @@ return {
   black = 0xaa000000,
   white = 0xaae2e2e3,
   red = 0xccfc3e9d,
-  green = 0xcc9ee0a2,
+  green = 0xccbfffab,
   blue = 0xcc36dcef,
   yellow = 0xcce7c664,
   orange = 0xfff39660,

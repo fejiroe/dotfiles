@@ -13,14 +13,14 @@
   "features": {
     "edit_prediction_provider": "none"
   },
-  "theme": "Aura Dark",
+  "theme": "Dark Pop UI",
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
-  "ui_font_size": 16,
-  "ui_font_family": "MesloLGL Nerd Font Mono",
-  "buffer_font_size": 16,
+  "ui_font_size": 18,
+  "ui_font_family": "Iosevka",
+  "buffer_font_size": 18,
   "unnecessary_code_fade": 0.5,
   "toolbar": {
     "breadcrumbs": false,
@@ -36,10 +36,10 @@
   },
   "terminal": {
     // "font_family": "Apple Color Emoji"
-    "font_family": "MesloLGL Nerd Font Mono"
+    "font_family": "Iosevka"
   },
 
-  // custom theming,  opacity is stored in the last two digits
+  // custom theming,  rrgbbAA
   "experimental.theme_overrides": {
     // "renamed.background": "#00000F20",
     // "search.match_background": "#000FFF20",

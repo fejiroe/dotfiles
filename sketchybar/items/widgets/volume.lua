@@ -9,19 +9,19 @@ local volume_percent = sbar.add("item", "widgets.volume1", {
   icon = { drawing = false },
   label = {
     string = "??%",
-    padding_left = -1,
+    padding_left = 1,
     font = { family = settings.font.numbers }
   },
 })
 
 local volume_icon = sbar.add("item", "widgets.volume2", {
   position = "right",
-  padding_right = 2,
+  padding_right = 4,
   icon = {
     string = icons.volume._100,
     width = 0,
     align = "left",
-    color = colors.grey,
+    color = colors.yellow,
     font = {
       style = settings.font.style_map["Regular"],
       size = 14.0,

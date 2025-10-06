@@ -43,6 +43,7 @@ function y() {
 
 alias nvimrc="cd ~/.config/nvim/lua/ && nvim ."
 alias termrc="nvim ~/.config/wezterm/wezterm.lua"
+alias ghosttyrc="nvim ~/.config/ghostty/config"
 alias yabairc="nvim ~/.yabairc"
 alias skhdrc="nvim ~/.skhdrc"
 alias zshrc="nvim ~/.zshrc"
@@ -51,6 +52,10 @@ alias sketchyrc="cd ~/.config/sketchybar/ && nvim ."
 alias sketchr="brew services restart sketchybar"
 #alias brewski="brew update && brew upgrade && brew cleanup"
 
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 eval "$(starship init zsh)"
 
 #launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"

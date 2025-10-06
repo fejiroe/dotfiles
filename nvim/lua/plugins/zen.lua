@@ -11,8 +11,10 @@ return {
             plugins = {
                 options = {
                     enabled = true,
+                    laststatus = 0,
                 },
                 tmux = {enabled = true},
+                gitsigns = {enabled = false},
             },
         }
     }

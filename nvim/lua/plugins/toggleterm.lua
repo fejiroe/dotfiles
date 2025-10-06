@@ -2,7 +2,13 @@ return {
         {'akinsho/toggleterm.nvim',
         version = "*",
         opts = {
-            open_mapping = [[<c-/>]]
+            direction = 'float',
+            open_mapping = [[<c-/>]],
+            float_opts = {
+                border = 'single',
+                width = 72,
+                height = 24,
+            },
         }
     }
 }

@@ -15,23 +15,23 @@ for i = 1, 10, 1 do
       padding_left = 2,
       padding_right = 2,
       color = colors.white,
-      highlight_color = colors.white, -- !!
+      highlight_color = colors.green, -- !
     },
     label = {
       padding_right = 6,
       padding_left = 2,
       color = colors.grey,
-      highlight_color = colors.white,
+      highlight_color = colors.magenta, -- !!!
       font = "sketchybar-app-font:Regular:16.0",
       y_offset = -1,
     },
     padding_right = 2,
     padding_left = 2,
     background = {
-      color = colors.black,
+      color = colors.transparent,
       border_width = 0,
-      height = 24,
-      border_color = colors.black,
+      height = 22,
+      border_color = colors.transparent,
     },
     position = "left",
     popup = { background = { border_width = 5, border_color = colors.black } }
@@ -44,7 +44,7 @@ for i = 1, 10, 1 do
     background = {
       color = colors.transparent,
       border_color = colors.white,
-      height = 28,
+      height = 26,
       --padding_right = 10,
       border_width = 1,
     }
@@ -75,10 +75,10 @@ for i = 1, 10, 1 do
     space:set({
       icon = { highlight = selected, },
       label = { highlight = selected },
-      background = { border_color = selected and colors.black or colors.bg2 }
+      background = { border_color = selected and colors.transparent or colors.transparent }
     })
     space_bracket:set({
-        background = { border_color = selected and colors.white or colors.bg2 }, -- !!,
+        background = { border_color = selected and colors.transparent or colors.transparent}, -- !!,
         padding_left = 20,
       })
   end)
@@ -100,7 +100,7 @@ space_window_observer:subscribe("space_windows_change", function(env)
   end
 
   if (no_app) then
-    icon_line = ""
+    icon_line = "+"
   end
   sbar.animate("tanh", 10, function()
     spaces[env.INFO.space]:set({ label = icon_line })
