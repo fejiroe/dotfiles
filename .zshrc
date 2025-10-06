@@ -26,7 +26,7 @@ export XDG_RUNTIME_DIR="$TMPDIR/runtime-$UID"
 export XDG_STATE_HOME="$HOME/.local/state"
 export PATH="$XDG_BIN_HOME:$PATH"
 
-WWW_HOME='http://ecosia.org'
+WWW_HOME='http://startpage.com'
 export WWW_HOME
 
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -50,6 +50,7 @@ alias zshrc="nvim ~/.zshrc"
 alias yabr="yabai --restart-service"
 alias sketchyrc="cd ~/.config/sketchybar/ && nvim ."
 alias sketchr="brew services restart sketchybar"
+alias dotfiles="cd icloud/code/dotfiles"
 #alias brewski="brew update && brew upgrade && brew cleanup"
 
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'

@@ -1,0 +1,4 @@
+.DS_Store
+.netrc
+ghostty/shaders
+nvim/lazy-lock.json
