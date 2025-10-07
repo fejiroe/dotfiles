@@ -50,7 +50,7 @@ alias zshrc="nvim ~/.zshrc"
 alias yabr="yabai --restart-service"
 alias sketchyrc="cd ~/.config/sketchybar/ && nvim ."
 alias sketchr="brew services restart sketchybar"
-alias dotfiles="cd icloud/code/dotfiles"
+alias dotfiles="cd ~/icloud/code/dotfiles"
 #alias brewski="brew update && brew upgrade && brew cleanup"
 
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
