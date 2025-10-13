@@ -2,14 +2,15 @@ local colors = require("colors")
 local settings = require("settings")
 
 local front_app = sbar.add("item", "front_app", {
+    y_offset = - 3,
     position = "left",
     display = "active",
-    icon = { drawing = false },
+    icon = "", -- can put a seperator here
     label = {
         font = {
             family = "Terminus (TTF)",
             style = "Bold",
-            size = 18.0,
+            size = 16.0,
         },
         color = colors.white,
     },

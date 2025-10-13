@@ -23,5 +23,11 @@
     "bindings": {
       "ctrl-/": "terminal_panel::Toggle"
     }
+  },
+  {
+    "context": "((Editor && jupyter) && !ContextEditor)",
+    "bindings": {
+      "ctrl-e": "repl::Run"
+    }
   }
 ]

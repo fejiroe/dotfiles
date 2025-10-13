@@ -8,8 +8,8 @@ mouse-hide-while-typing = true
 macos-titlebar-style = hidden
 theme = Chester
 background = #000000
-background-opacity = 0.21
-background-blur-radius = 21
+background-opacity = 0.51
+background-blur-radius = 33
 custom-shader-animation = true
 custom-shader = ghostty-shaders/cursor_smear.glsl 
 

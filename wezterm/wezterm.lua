@@ -3,7 +3,7 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config.font = wezterm.font 'Terminus (TTF)'
-config.font_size = 21
+config.font_size = 20
 config.color_scheme = 'Modus Vivendi (Gogh)'
 config.window_background_opacity = 0.33
 config.macos_window_background_blur = 21

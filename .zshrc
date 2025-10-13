@@ -6,7 +6,7 @@ set -o vi
    export EDITOR='nvim'
  fi
 
-plugins=(git tmux)
+#plugins=(git tmux)
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 if type brew &>/dev/null; then
@@ -32,6 +32,7 @@ export WWW_HOME
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ENV_HINTS=1
 
+#
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -41,6 +42,7 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+#
 alias nvimrc="cd ~/.config/nvim/lua/ && nvim ."
 alias termrc="nvim ~/.config/wezterm/wezterm.lua"
 alias ghosttyrc="nvim ~/.config/ghostty/config"
@@ -51,12 +53,14 @@ alias yabr="yabai --restart-service"
 alias sketchyrc="cd ~/.config/sketchybar/ && nvim ."
 alias sketchr="brew services restart sketchybar"
 alias dotfiles="cd ~/icloud/code/dotfiles"
-#alias brewski="brew update && brew upgrade && brew cleanup"
-
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-eval "$(starship init zsh)"
 
 #launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
+
+# python
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
+
+#
+eval "$(starship init zsh)"

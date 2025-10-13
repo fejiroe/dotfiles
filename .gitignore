@@ -1,4 +1,5 @@
 .DS_Store
 .netrc
 ghostty/shaders
+zed/prompts
 nvim/lazy-lock.json
