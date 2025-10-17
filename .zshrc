@@ -53,6 +53,8 @@ alias yabr="yabai --restart-service"
 alias sketchyrc="cd ~/.config/sketchybar/ && nvim ."
 alias sketchr="brew services restart sketchybar"
 alias dotfiles="cd ~/icloud/code/dotfiles"
+alias lmsqwen="lms load whiterabbitneo-2.5-qwen-2.5-coder-7b-mlx"
+alias lmsgpt="lms load gpt-oss-20b"
 
 #launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
 
@@ -64,3 +66,8 @@ eval "$(pyenv init - zsh)"
 
 #
 eval "$(starship init zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/edafeadhe/.lmstudio/bin"
+# End of LM Studio CLI section
+

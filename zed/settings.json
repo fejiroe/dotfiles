@@ -8,13 +8,21 @@
 // from the command palette or from `Zed` application menu.
 //
 {
+  //"agent": {
+  //  "default_model": {
+  //    "provider": "lmstudio",
+  //    "model": "whiterabbitneo-2.5-qwen-2.5-coder-7b-mlx"
+  //  },
+  //  "dock": "right",
+  //  "model_parameters": []
+  //},
+  "disable_ai": true,
   "vim_mode": true,
   "hide_mouse": "on_typing_and_movement",
   "relative_line_numbers": true,
   "features": {
     "edit_prediction_provider": "none"
   },
-  "disable_ai": true,
   "theme": "Aura Dark",
   "telemetry": {
     "diagnostics": false,
