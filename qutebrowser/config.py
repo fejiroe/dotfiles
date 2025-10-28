@@ -61,6 +61,34 @@ config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
 #   - never: Don't accept cookies at all.
 config.set('content.cookies.accept', 'all', 'devtools://*')
 
+# Which cookies to accept. With QtWebEngine, this setting also controls
+# other features with tracking capabilities similar to those of cookies;
+# including IndexedDB, DOM storage, filesystem API, service workers, and
+# AppCache. Note that with QtWebKit, only `all` and `never` are
+# supported as per-domain values. Setting `no-3rdparty` or `no-
+# unknown-3rdparty` per-domain on QtWebKit will have the same effect as
+# `all`. If this setting is used with URL patterns, the pattern gets
+# applied to the origin/first party URL of the page making the request,
+# not the request URL. With QtWebEngine 5.15.0+, paths will be stripped
+# from URLs, so URL patterns using paths will not match. With
+# QtWebEngine 5.15.2+, subdomains are additionally stripped as well, so
+# you will typically need to set this setting for `example.com` when the
+# cookie is set on `somesubdomain.example.com` for it to work properly.
+# To debug issues with this setting, start qutebrowser with `--debug
+# --logfilter network --debug-flag log-cookies` which will show all
+# cookies being set.
+# Type: String
+# Valid values:
+#   - all: Accept all cookies.
+#   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
+#   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
+#   - never: Don't accept cookies at all.
+c.content.cookies.accept = 'no-unknown-3rdparty'
+
+# Store cookies.
+# Type: Bool
+c.content.cookies.store = False
+
 # Value to send in the `Accept-Language` header. Note that the value
 # read from JavaScript is always the global value.
 # Type: String
@@ -148,12 +176,45 @@ c.keyhint.radius = 0
 # Type: Int
 c.prompt.radius = 0
 
+# When/how to show the scrollbar.
+# Type: String
+# Valid values:
+#   - always: Always show the scrollbar.
+#   - never: Never show the scrollbar.
+#   - when-searching: Show the scrollbar when searching for text in the webpage. With the QtWebKit backend, this is equal to `never`.
+#   - overlay: Show an overlay scrollbar. On macOS, this is unavailable and equal to `when-searching`; with the QtWebKit backend, this is equal to `never`. Enabling/disabling overlay scrollbars requires a restart.
+c.scrolling.bar = 'never'
+
+# Enable smooth scrolling for web pages. Note smooth scrolling does not
+# work with the `:scroll-px` command.
+# Type: Bool
+c.scrolling.smooth = True
+
 # Position of the status bar.
 # Type: VerticalPosition
 # Valid values:
 #   - top
 #   - bottom
 c.statusbar.position = 'top'
+
+# List of widgets displayed in the statusbar.
+# Type: List of StatusbarWidget
+# Valid values:
+#   - url: Current page URL.
+#   - scroll: Percentage of the current page position like `10%`.
+#   - scroll_raw: Raw percentage of the current page position like `10`.
+#   - history: Display an arrow when possible to go back/forward in history.
+#   - search_match: A match count when searching, e.g. `Match [2/10]`.
+#   - tabs: Current active tab, e.g. `2`.
+#   - keypress: Display pressed keys when composing a vi command.
+#   - progress: Progress bar for the current page loading.
+#   - text:foo: Display the static text after the colon, `foo` in the example.
+#   - clock: Display current time. The format can be changed by adding a format string via `clock:...`. For supported format strings, see https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes[the Python datetime documentation].
+c.statusbar.widgets = ['keypress', 'search_match', 'url', 'scroll', 'history', 'tabs', 'progress']
+
+# Padding (in pixels) around text for tabs.
+# Type: Padding
+c.tabs.padding = {'bottom': 1, 'left': 5, 'right': 5, 'top': 1}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
@@ -187,7 +248,7 @@ c.colors.messages.info.fg = 'white'
 
 # Background color of the statusbar.
 # Type: QssColor
-c.colors.statusbar.normal.bg = '#99000000'
+c.colors.statusbar.normal.bg = '#000000'
 
 # Background color of the statusbar in insert mode.
 # Type: QssColor
@@ -203,7 +264,7 @@ c.colors.statusbar.command.private.fg = 'white'
 
 # Background color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.bg = '#99000000'
+c.colors.tabs.selected.odd.bg = '#000000'
 
 # Background color for webpages if unset (or empty to use the theme's
 # color).
@@ -231,7 +292,7 @@ c.fonts.default_family = 'Terminus (TTF)'
 # either a float value with a "pt" suffix, or an integer value with a
 # "px" suffix.
 # Type: String
-c.fonts.default_size = '14pt'
+c.fonts.default_size = '20pt'
 
 # Font used for tooltips. If set to null, the Qt default is used.
 # Type: Font

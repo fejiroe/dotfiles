@@ -43,16 +43,19 @@ function y() {
 }
 
 #
+alias dotfiles="cd ~/icloud/code/dotfiles && nvim ."
 alias nvimrc="cd ~/.config/nvim/lua/ && nvim ."
 alias termrc="nvim ~/.config/wezterm/wezterm.lua"
 alias ghosttyrc="nvim ~/.config/ghostty/config"
 alias yabairc="nvim ~/.yabairc"
 alias skhdrc="nvim ~/.skhdrc"
 alias zshrc="nvim ~/.zshrc"
-alias yabr="yabai --restart-service"
 alias sketchyrc="cd ~/.config/sketchybar/ && nvim ."
+alias tmuxconf="nvim ~/.tmux.conf"
+
+alias yabr="yabai --restart-service"
 alias sketchr="brew services restart sketchybar"
-alias dotfiles="cd ~/icloud/code/dotfiles"
+
 alias lmsqwen="lms load whiterabbitneo-2.5-qwen-2.5-coder-7b-mlx"
 alias lmsgpt="lms load gpt-oss-20b"
 

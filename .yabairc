@@ -31,6 +31,6 @@ yabai -m config \
 
 echo "yabai configuration loaded.."
 yabai -m rule --add --apply app="^(Max)$" manage=off
-borders active_color=0xbb91c3ff inactive_color=0x99494d64 style=square width=1.0 &
+#borders active_color=0xbb91c3ff inactive_color=0x99494d64 style=square width=1.0 &
 yabai -m signal --add label="flash_focus" event="window_focused" action="yabai -m window \$YABAI_WINDOW_ID --opacity 0.1 && sleep $(yabai -m config window_opacity_duration) && yabai -m window \$YABAI_WINDOW_ID --opacity 0.0"
 
