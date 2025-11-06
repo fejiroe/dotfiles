@@ -1,17 +1,15 @@
 return {
-    --'helbing/aura.nvim',
-    --'baliestri/aura-theme',
-    'miikanissi/modus-themes.nvim',
-    --'maxmx03/fluoromachine.nvim',
-    --'olivercederborg/poimandres.nvim',
-    priority = 2000,
+    'ficcdaf/ashen.nvim',
+    dependencies = {
+        'xiyaowong/transparent.nvim',
+    },
+    priority = 1000,
     
     config = function()
-        --vim.cmd([[colorscheme aura]])
-        require('modus-themes').setup({
-        transparent = true,
-        })
-        vim.cmd([[colorscheme modus_vivendi]])
+        vim.o.background = "dark"
+        vim.o.termguicolors = true
+        vim.cmd("colorscheme ashen")
+        vim.g.transparent_enabled = true
         vim.cmd [[
         highlight Normal guibg=none
         highlight NonText guibg=none

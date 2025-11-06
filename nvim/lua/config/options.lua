@@ -5,7 +5,6 @@ vim.opt.incsearch = true
 vim.o.inccommand = 'split'
 
 vim.cmd('filetype plugin on')
-vim.o["termguicolors"] = true
 
 vim.o.expandtab = true 
 vim.o.softtabstop = 4 

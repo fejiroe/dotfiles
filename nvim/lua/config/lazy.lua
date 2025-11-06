@@ -18,6 +18,11 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 require("lazy").setup({
+    --[[
+        install = {
+            colorscheme = {"ashen"},
+        },
+        ]]--
 	spec = {
 		{import = 'plugins'},
 		--dependencies = { 'nvim-lua/plenary.nvim',

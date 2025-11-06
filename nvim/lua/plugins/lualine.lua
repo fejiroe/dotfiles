@@ -9,16 +9,19 @@ return {
         local colors = {
             bg       = '#000000',
             fg       = '#bbc2cf',
-            white    = '#ffffff',
-            yellow   = '#efff10',
-            cyan     = '#00fbfc',
-            darkblue = '#081633',
-            green    = '#01ffc8',
+            white    = '#beeeef',
+            yellow   = '#ccaa11',
+            cyan     = '#00cb9c',
+            darkblue = '#081673',
+            brown    = '#884411',
+            green    = '#33aa22',
             orange   = '#FF7810',
-            violet   = '#f9a1f1',
-            magenta  = '#9442ff',
+            violet   = '#ccdd33',
+            magenta  = '#991151',
+            brick    = '#bb2200',
             blue     = '#115fef',
-            red      = '#ff0297',
+            salmon     = '#dd5054',
+            red      = '#ff0227',
         }
 
         local conditions = {
@@ -88,8 +91,8 @@ return {
                 -- auto change color according to neovims mode
                 local mode_color = {
                     n = colors.white,
-                    i = colors.green,
-                    v = colors.red,
+                    i = colors.red,
+                    v = colors.orange,
                     [''] = colors.blue,
                     V = colors.violet,
                     c = colors.magenta,
@@ -122,7 +125,7 @@ return {
         ins_left {
             'filename',
             cond = conditions.buffer_not_empty,
-            color = { fg = colors.magenta, gui = 'bold' },
+            color = { fg = colors.brick, gui = 'bold' },
         }
 
         ins_left { 'location' }
@@ -165,20 +168,20 @@ return {
             'o:encoding', -- option component same as &encoding in viml
             fmt = string.upper, 
             cond = conditions.hide_in_width,
-            color = {fg = colors.green},
+            color = {fg = colors.fg},
         }
 
         ins_right {
             'fileformat',
             fmt = string.upper,
             icons_enabled = false, 
-            color = { fg = colors.green, gui = 'bold' },
+            color = { fg = colors.salmon, gui = 'bold' },
         }
 
         ins_right {
             'branch',
             icon = '',
-            color = { fg = colors.violet, gui = 'bold' },
+            color = { fg = colors.cyan, gui = 'bold' },
         }
 
         ins_right {
