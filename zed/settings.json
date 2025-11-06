@@ -8,15 +8,7 @@
 // from the command palette or from `Zed` application menu.
 //
 {
-  //"agent": {
-  //  "default_model": {
-  //    "provider": "lmstudio",
-  //    "model": "whiterabbitneo-2.5-qwen-2.5-coder-7b-mlx"
-  //  },
-  //  "dock": "right",
-  //  "model_parameters": []
-  //},
-  "disable_ai": true,
+   "disable_ai": true,
   "vim_mode": true,
   "hide_mouse": "on_typing_and_movement",
   "relative_line_numbers": true,
@@ -29,9 +21,7 @@
     "metrics": false
   },
   "ui_font_size": 18,
-  "ui_font_family": "Terminus (TTF)",
   "buffer_font_size": 20,
-  "buffer_font_family": "Terminus (TTF)",
   "rounded_selection": false,
   "unnecessary_code_fade": 0.5,
   "title_bar": {
@@ -51,8 +41,6 @@
     "show_close_button": "hover"
   },
   "terminal": {
-    // "font_family": "Apple Color Emoji"
-    "font_family": "Terminus (TTF)"
   },
 
   // custom theming,  rrgbbAA
