@@ -23,7 +23,7 @@
   "features": {
     "edit_prediction_provider": "none"
   },
-  "theme": "Aura Dark",
+  "theme": "Gruvbox Dark",
   "telemetry": {
     "diagnostics": false,
     "metrics": false
