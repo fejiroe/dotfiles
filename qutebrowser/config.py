@@ -147,22 +147,6 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
-# Allow locally loaded documents to access remote URLs.
-# Type: Bool
-config.set('content.local_content_can_access_remote_urls', True, 'file:///Users/edafeadhe/Library/Application%20Support/qutebrowser/userscripts/*')
-
-# Allow locally loaded documents to access other local URLs.
-# Type: Bool
-config.set('content.local_content_can_access_file_urls', False, 'file:///Users/edafeadhe/Library/Application%20Support/qutebrowser/userscripts/*')
-
-# Editor (and arguments) to use for the `edit-*` commands. The following
-# placeholders are defined:  * `{file}`: Filename of the file to be
-# edited. * `{line}`: Line in which the caret is found in the text. *
-# `{column}`: Column in which the caret is found in the text. *
-# `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
-# Same as `{column}`, but starting from index 0.
-# Type: ShellCommand
-c.editor.command = ['/Applications/WezTerm.app/MacOS/wezterm', '-e-', 'nvim', '{file}']
 
 # Rounding radius (in pixels) for the edges of hints.
 # Type: Int
@@ -292,7 +276,7 @@ c.fonts.default_family = 'Terminus (TTF)'
 # either a float value with a "pt" suffix, or an integer value with a
 # "px" suffix.
 # Type: String
-c.fonts.default_size = '20pt'
+c.fonts.default_size = '16'
 
 # Font used for tooltips. If set to null, the Qt default is used.
 # Type: Font

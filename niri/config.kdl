@@ -43,6 +43,7 @@ input {
         // scroll-method "on-button-down"
         // scroll-button 273
         // middle-emulation
+        //focus-follows-mouse max-scroll-amount="0%"
     }
 }
 
@@ -253,7 +254,7 @@ window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    match app-id="wezterm"
     default-column-width {}
 }
 
@@ -294,8 +295,9 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
-    Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Alt+Space hotkey-overlay-title="Open a Terminal: WezTerm" { spawn "wezterm"; }
+    Alt+Shift+Space hotkey-overlay-title="Open a browser: qutebrowser" { spawn "qutebrowser"; }
+    Mod+Space hotkey-overlay-title="Run an Application: wofi" { spawn "wofi"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.

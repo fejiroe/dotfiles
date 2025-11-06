@@ -50,7 +50,7 @@ button:hover {
 }
 
 #workspaces button {
-  padding: 0px 4px;
+  padding: 10px 4px;
   /*    background-color: rgba(0,0,0,0.3); */
 }
 
@@ -106,11 +106,14 @@ button:hover {
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
   margin-left: 0;
+  padding-left: 8px;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
+  margin-right: 9;
+  padding-right: 12px;
+  padding-left: 12px;
 }
 
 #clock {
