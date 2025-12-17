@@ -9,7 +9,7 @@ return {
         local colors = {
             bg       = '#000000',
             fg       = '#bbc2cf',
-            white    = '#beeeef',
+            white    = '#deeeef',
             yellow   = '#ccaa11',
             cyan     = '#00cb9c',
             darkblue = '#081673',

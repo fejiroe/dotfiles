@@ -1,16 +1,16 @@
-# window navigation
+# focus
 alt - h : yabai -m window --focus west  || yabai -m display --focus west
 alt - n : yabai -m window --focus south || yabai -m display --focus south
 alt - e : yabai -m window --focus north || yabai -m display --focus north
 alt - i : yabai -m window --focus east  || yabai -m display --focus east
 
-# moving windows in spaces
-shift + alt - h : yabai -m window --warp west || $(yabai -m window --display west && sketchybar --trigger windows_on_spaces && yabai -m display --focus west && yabai -m window --warp last) || yabai -m window --move rel:-10:0
-shift + alt - n : yabai -m window --warp south || $(yabai -m window --display south && sketchybar --trigger windows_on_spaces && yabai -m display --focus south) || yabai -m window --move rel:0:10
-shift + alt - e : yabai -m window --warp north || $(yabai -m window --display north && sketchybar --trigger windows_on_spaces && yabai -m display --focus north) || yabai -m window --move rel:0:-10
-shift + alt - i : yabai -m window --warp east || $(yabai -m window --display east && sketchybar --trigger windows_on_spaces && yabai -m display --focus east && yabai -m window --warp first) || yabai -m window --move rel:10:0
+# move in spaces
+shift + alt - h : yabai -m window --swap west && sketchybar --trigger windows_on_spaces
+shift + alt - n : yabai -m window --swap south && sketchybar --trigger windows_on_spaces
+shift + alt - e : yabai -m window --swap north && sketchybar --trigger windows_on_spaces
+shift + alt - i : yabai -m window --swap east && sketchybar --trigger windows_on_spaces
 
-## Resize (ctrl + alt - ...)
+# resize
 ctrl + alt - i : yabai -m window --resize left:100:0 || yabai -m window --resize left:100:0
 ctrl + alt - e    : yabai -m window --resize top:-100:0 || yabai -m window --resize left:-100:0
 ctrl + alt - n    : yabai -m window --resize bottom:0:100 || yabai -m window --resize top:0:100
@@ -18,8 +18,12 @@ ctrl + alt - h    : yabai -m window --resize right:0:-100 || yabai -m window --r
 
 # equalize size of windows
 shift + alt - b : yabai -m space --balance
-# toggle split orientation of the selected windows node
+# toggle split orientation of the selected win
 shift + alt - s : yabai -m window --toggle split
+# float selected win
+shift + alt - v : yabai -m window --toggle float
+#mirror
+shift + alt - m : yabai -m space --mirror y-axis
 # enable / disable gaps in current workspace
 ctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 
@@ -27,8 +31,5 @@ ctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 alt - space : open -n /Applications/WezTerm.app
 shift + alt - space : open -n /Applications/qutebrowser.app
 
-# move windows between spaces
-#cmd + left : yabai -m
-#cmd + left : yabai -m
-alt + shift - left : yabai -m space --move prev
-alt + shift - right : yabai -m space --move next
+# scripts
+cmd + shift - space : yabr && sketchr
