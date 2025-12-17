@@ -276,7 +276,7 @@ c.fonts.default_family = 'Terminus (TTF)'
 # either a float value with a "pt" suffix, or an integer value with a
 # "px" suffix.
 # Type: String
-c.fonts.default_size = '16'
+c.fonts.default_size = '20pt'
 
 # Font used for tooltips. If set to null, the Qt default is used.
 # Type: Font
