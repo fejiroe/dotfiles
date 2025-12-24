@@ -6,15 +6,6 @@ set -o vi
    export EDITOR='nvim'
  fi
 
-#plugins=(git tmux)
-
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-    autoload -Uz compinit
-    compinit
-fi
-
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
@@ -42,7 +33,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-#
 alias poweroff="sudo shutdown -h now"
 
 alias dotfiles="cd ~/icloud/code/dotfiles && nvim ."
