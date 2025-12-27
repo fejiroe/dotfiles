@@ -113,12 +113,12 @@ button:hover {
 .modules-right > widget:last-child > #workspaces {
   margin-right: 9;
   padding-right: 12px;
-  padding-left: 12px;
+  padding-left: 16px;
 }
 
 #clock {
   font-size:14px;
-  font-weight: bold;
+  padding-right: 8px;
 }
 
 #battery icon {
