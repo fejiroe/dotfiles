@@ -2,4 +2,5 @@
 .netrc
 ghostty/shaders
 zed/prompts
+zed/conversations
 nvim/lazy-lock.json
