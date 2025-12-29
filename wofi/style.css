@@ -35,8 +35,9 @@ window {
 }
 
 #entry:selected {
+    color: #ffffff;
     background-color: rgba(150, 8, 12, 0.1);
-    border: 2px solid #cc1110;
+    border: 2px solid rgba(150, 0, 0, 0.8);
     border-radius: 0px;
 }
 

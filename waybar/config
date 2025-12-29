@@ -8,7 +8,7 @@
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": [],
     //"modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "clock", "tray"],
-    "modules-right": ["mpd", "idle_inhibitor", "temperature", "cpu", "memory","network", "pulseaudio", "backlight", "battery", "tray", "clock"],
+    "modules-right": ["mpd", "temperature", "cpu", "memory","network", "pulseaudio", "backlight", "battery", "tray", "clock"],
 
          "mpd": {
 //        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",

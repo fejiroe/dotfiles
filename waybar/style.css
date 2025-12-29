@@ -1,14 +1,15 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: "Terminus (TTF)";
+  font-family: "TerminessNerdFont";
   /*font-family: "D2CodingLigature Nerd Mono";*/
   font-size: 13px;
   min-height: 0;
 }
 
 window#waybar {
-  background: transparent;
+  /* background: transparent; */
   /*    background-color: rgba(43, 48, 59, 0.5); */
+    background-color: rgba(0, 0, 0, 0.8); 
   /*    border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
   color: #ffffff;
   transition-property: background-color;
