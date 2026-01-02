@@ -6,7 +6,7 @@ mouse-hide-while-typing = true
 
 #window-decoration = none
 macos-titlebar-style = hidden
-theme = Tomorrow Night Burns
+theme = UltraDark
 background = #000000
 background-opacity = 0.51
 background-blur-radius = 33
