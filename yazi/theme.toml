@@ -1,5 +1,4 @@
 [mgr]
-
 hovered = { reversed = true }
 preview_hovered = { reversed = true }
 
@@ -18,3 +17,5 @@ separator = " - "
 [status]
 sep_left = { open = "", close = "" }
 sep_right = { open = "", close = "" }
+[indicator]
+padding = { open = "█", close = "█" }

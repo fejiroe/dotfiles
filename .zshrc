@@ -34,6 +34,7 @@ function y() {
 }
 
 alias poweroff="sudo shutdown -h now"
+alias ls="ls -al --color"
 
 alias dotfiles="cd ~/icloud/code/dotfiles && nvim ."
 alias nvimrc="cd ~/.config/nvim/lua/ && nvim ."
