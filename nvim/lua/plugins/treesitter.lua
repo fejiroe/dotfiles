@@ -1,17 +1,19 @@
 return {
     'nvim-treesitter/nvim-treesitter',
-    event = { "BufReadPost", "BufNewFile" },
-    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+    lazy = false,
     build = ":TSUpdate",
     config = function() 
-        require'nvim-treesitter.config'.setup ({
-            ensure_installed = { "asm", "bash", "c", "cpp", "lua", "vim", "vimdoc",  "markdown", "markdown_inline", "swift", "rust", "zig" },
-            sync_install = false,
-            auto_install = false,
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = false,
-            },
+        local treesitter = require('nvim-treesitter')
+        treesitter.setup()
+        --treesitter.install {'c', 'cpp', 'rust', 'vim', 'swift', 'bash'}
+        vim.api.nvim_create_autocmd('FileType', {
+            pattern = {'c', 'cpp', 'rust', 'vim', 'vimdoc', 'markdown', 'swift', 'bash'},
+            callback = function ()
+                vim.treesitter.start()
+                vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+                vim.wo.foldmethod = 'expr'
+                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end,
         })
     end
 }

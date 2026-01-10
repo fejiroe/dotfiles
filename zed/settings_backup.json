@@ -8,27 +8,17 @@
 // from the command palette or from `Zed` application menu.
 //
 {
-  "agent": {
-    "default_profile": "minimal",
-    "default_model": {
-      "provider": "lmstudio",
-      "model": "gpt-oss-20b"
-    },
-    "model_parameters": []
-  },
-  "ui_font_family": "Terminus (TTF)",
-  "buffer_font_family": "Terminus (TTF)",
-  "disable_ai": false,
+   "disable_ai": true,
   "vim_mode": true,
   "hide_mouse": "on_typing_and_movement",
-  "relative_line_numbers": "enabled",
+  "relative_line_numbers": true,
   "features": {
-    "edit_prediction_provider": "none",
+    "edit_prediction_provider": "none"
   },
   "theme": "Gruvbox Dark",
   "telemetry": {
     "diagnostics": false,
-    "metrics": false,
+    "metrics": false
   },
   "ui_font_size": 18,
   "buffer_font_size": 20,
@@ -36,21 +26,22 @@
   "unnecessary_code_fade": 0.5,
   "title_bar": {
     "show_user_picture": false,
-    "show_menus": false,
+    "show_menus": false
   },
   "toolbar": {
     "breadcrumbs": false,
     "quick_actions": false,
     "selections_menu": false,
-    "agent_review": false,
+    "agent_review": false
   },
   "tab_bar": {
-    "show_tab_bar_buttons": true,
+    "show_tab_bar_buttons": true
   },
   "tabs": {
-    "show_close_button": "hover",
+    "show_close_button": "hover"
   },
-  "terminal": {},
+  "terminal": {
+  },
 
   // custom theming,  rrgbbAA
   "experimental.theme_overrides": {
@@ -75,7 +66,7 @@
     "scrollbar.track.border": "#00000000",
     "scrollbar.track.background": "#00000000",
     "scrollbar.thumb.background": "#00000000",
-    "scrollbar.thumb.border": "#00000000",
+    "scrollbar.thumb.border": "#00000000"
     // "editor.line_highlight": "#00000000",
     // "editor.active_line.background": "#00000000",
     // "editor.selection.background": "#00000000",
@@ -84,5 +75,5 @@
     // "editor.selection.inactive.foreground": "#00000000",
     // "editor.selection.inactive.border": "#00000000",
     //"element.background": "#fffffff22"
-  },
+  }
 }
