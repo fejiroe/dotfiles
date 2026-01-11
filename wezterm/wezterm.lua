@@ -19,8 +19,21 @@ if is_darwin then
         top = 1,
         bottom = 6,
     }
+    config.cursor_trail = {
+	enabled = true,
+	-- dwell_threshold controls the amount of time the cursor must sit still
+	-- to draw a trail.
+	dwell_threshold = 15,
+	-- distance_threshold defines the radius in cells the cursor must jump before
+	-- a trail is drawn.
+	distance_threshold = 4,
+	-- duration is the animation time in milliseconds for leading edges of the trail to reach the cursor
+	duration = 80,
+	-- spread is a multiplier for duration applied to the trailing edges of the quad used to render the trail. This increases the apparent smear.
+	spread = 1.5,
+	opacity = 0.5,
+    }
 end
-
 if is_linux then
     config.font = wezterm.font 'Terminess Nerd Font'
     config.font_size = 15
