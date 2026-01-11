@@ -41,7 +41,20 @@ if is_linux then
     config.hide_tab_bar_if_only_one_tab = true
     config.window_background_opacity = 0.33
     config.enable_wayland = false
-
+    config.cursor_trail = {
+	enabled = true,
+	-- dwell_threshold controls the amount of time the cursor must sit still
+	-- to draw a trail.
+	dwell_threshold = 15,
+	-- distance_threshold defines the radius in cells the cursor must jump before
+	-- a trail is drawn.
+	distance_threshold = 4,
+	-- duration is the animation time in milliseconds for leading edges of the trail to reach the cursor
+	duration = 80,
+	-- spread is a multiplier for duration applied to the trailing edges of the quad used to render the trail. This increases the apparent smear.
+	spread = 1.5,
+	opacity = 0.5,
+    }
 end
 
 return config
