@@ -20,7 +20,7 @@ return {
             magenta  = '#991151',
             brick    = '#bb2200',
             blue     = '#115fef',
-            salmon     = '#dd5054',
+            salmon     = '#fd9054',
             red      = '#ff0227',
         }
 
@@ -91,7 +91,7 @@ return {
                 -- auto change color according to neovims mode
                 local mode_color = {
                     n = colors.white,
-                    i = colors.red,
+                    i = colors.salmon,
                     v = colors.orange,
                     [''] = colors.blue,
                     V = colors.violet,
@@ -125,7 +125,7 @@ return {
         ins_left {
             'filename',
             cond = conditions.buffer_not_empty,
-            color = { fg = colors.brick, gui = 'bold' },
+            color = { fg = colors.cyan, gui = 'bold' },
         }
 
         ins_left { 'location' }
@@ -175,7 +175,7 @@ return {
             'fileformat',
             fmt = string.upper,
             icons_enabled = false, 
-            color = { fg = colors.salmon, gui = 'bold' },
+            color = { fg = colors.blue, gui = 'bold' },
         }
 
         ins_right {

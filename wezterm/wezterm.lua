@@ -8,7 +8,7 @@ local is_linux <const> = wezterm.target_triple:find("linux") ~= nil
 if is_darwin then
     config.font = wezterm.font 'Terminus (TTF)'
     config.font_size = 20
-    config.color_scheme = 'Modus Vivendi (Gogh)'
+    config.color_scheme = 'poimandres'
     config.window_background_opacity = 0.42
     config.macos_window_background_blur = 21
     config.window_decorations = "RESIZE | MACOS_FORCE_DISABLE_SHADOW | MACOS_FORCE_SQUARE_CORNERS"

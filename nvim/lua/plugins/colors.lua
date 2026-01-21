@@ -1,5 +1,5 @@
 return {
-    'ficcdaf/ashen.nvim',
+    'olivercederborg/poimandres.nvim',
     dependencies = {
         'xiyaowong/transparent.nvim',
     },
@@ -8,7 +8,7 @@ return {
     config = function()
         vim.o.background = "dark"
         vim.o.termguicolors = true
-        vim.cmd("colorscheme ashen")
+        vim.cmd("colorscheme poimandres")
         vim.g.transparent_enabled = true
         vim.cmd [[
         highlight Normal guibg=none
