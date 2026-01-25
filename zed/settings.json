@@ -8,7 +8,16 @@
 // from the command palette or from `Zed` application menu.
 //
 {
+  "git_panel": {
+    "tree_view": true
+  },
+  "language_models": {
+    "openai_compatible": {
+      
+    }
+  },
   "agent": {
+    "notify_when_agent_waiting": "never",
     "default_profile": "minimal",
     "default_model": {
       "provider": "lmstudio",
@@ -25,7 +34,7 @@
   "features": {
     "edit_prediction_provider": "none",
   },
-  "theme": "Gruvbox Dark",
+  "theme": "GitHub Dark Classic",
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
