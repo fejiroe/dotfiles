@@ -37,9 +37,9 @@ end
 if is_linux then
     config.font = wezterm.font 'Terminess Nerd Font'
     config.font_size = 15
-    config.color_scheme = 'Count Von Count (terminal.sexy)'
+    config.color_scheme = 'poimandres'
     config.hide_tab_bar_if_only_one_tab = true
-    config.window_background_opacity = 0.33
+    config.window_background_opacity = 0.78
     config.enable_wayland = false
     config.cursor_trail = {
 	enabled = true,
