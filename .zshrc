@@ -36,7 +36,7 @@ function y() {
 alias poweroff="sudo shutdown -h now"
 alias ls="ls -al --color"
 
-alias dotfiles="cd ~/icloud/code/dotfiles && nvim ."
+alias dotfiles="cd ~/code/dotfiles && nvim ."
 alias nvimrc="cd ~/.config/nvim/lua/ && nvim ."
 alias termrc="nvim ~/.config/wezterm/wezterm.lua"
 alias ghosttyrc="nvim ~/.config/ghostty/config"
