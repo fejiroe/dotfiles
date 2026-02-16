@@ -135,7 +135,7 @@ return {
         ins_left {
             'diagnostics',
             sources = { 'nvim_diagnostic' },
-            symbols = { error = ' ', warn = ' ', info = ' ' },
+            symbols = { error = 'X', warn = '*', info = '!' },
             diagnostics_color = {
                 error = { fg = colors.red },
                 warn = { fg = colors.yellow },
@@ -186,7 +186,7 @@ return {
 
         ins_right {
             'diff',
-            symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
+            symbols = { added = '+', modified = '|', removed = '-' },
             diff_color = {
                 added = { fg = colors.green },
                 modified = { fg = colors.orange },

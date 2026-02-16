@@ -9,7 +9,7 @@ if is_darwin then
     config.font = wezterm.font 'Terminus (TTF)'
     config.font_size = 20
     config.color_scheme = 'poimandres'
-    config.window_background_opacity = 0.42
+    config.window_background_opacity = 0.51
     config.macos_window_background_blur = 21
     config.window_decorations = "RESIZE | MACOS_FORCE_DISABLE_SHADOW | MACOS_FORCE_SQUARE_CORNERS"
     config.hide_tab_bar_if_only_one_tab = true
