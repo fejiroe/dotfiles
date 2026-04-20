@@ -269,14 +269,14 @@ c.colors.webpage.darkmode.enabled = True
 # font setting, it's replaced with the fonts listed here. If set to an
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
-c.fonts.default_family = 'Terminus (TTF)'
+c.fonts.default_family = 'Terminess Nerd Font'
 
 # Default font size to use. Whenever "default_size" is used in a font
 # setting, it's replaced with the size listed here. Valid values are
 # either a float value with a "pt" suffix, or an integer value with a
 # "px" suffix.
 # Type: String
-c.fonts.default_size = '20pt'
+c.fonts.default_size = '16pt'
 
 # Font used for tooltips. If set to null, the Qt default is used.
 # Type: Font
