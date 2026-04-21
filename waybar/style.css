@@ -32,7 +32,7 @@ window#waybar.hidden {
   padding-left: 8px;
   padding-right: 8px;
   background-color: rgba(0,0,0,0.6);
-  font-size:14px;
+  font-size:20px;
   font-weight: bold;
 }
 

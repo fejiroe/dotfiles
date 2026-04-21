@@ -68,19 +68,19 @@
     "memory": {
         "format": " {}%"
     },
-    "temperature": {
-        "thermal-zone": 2,
-        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
-        "critical-threshold": 80,
-        "format-critical": "{icon} {temperatureC}°C",
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""]
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
+    //"temperature": {
+    //    "thermal-zone": 2,
+    //    "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+    //    "critical-threshold": 80,
+    //    "format-critical": "{icon} {temperatureC}°C",
+    //    "format": "{icon} {temperatureC}°C",
+    //    "format-icons": ["", "", ""]
+    //},
+//    "backlight": {
+        // // "device": "acpi_video1",
+  //      "format": "{icon} {percent}%",
+    //    "format-icons": ["", "", "", "", "", "", "", "", ""]
+    //},
     "battery": {
         "states": {
             // "good": 95,
@@ -109,10 +109,10 @@
     },
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
-        "format": "{icon} {volume}% {format_source}",
+        "format": " {icon}{volume}% {format_source}",
         "format-bluetooth": " {icon} {volume}% {format_source}",
         "format-bluetooth-muted": "  {icon} {format_source}",
-        "format-muted": "  {format_source}",
+        "format-muted": " {format_source}",
         "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
