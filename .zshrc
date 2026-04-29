@@ -1,9 +1,9 @@
 set -o vi
 
  if [[ -n $SSH_CONNECTION ]]; then # change this if nvim is too slow over network
-   export EDITOR='nvim'
- else
    export EDITOR='vim'
+ else
+   export EDITOR='nvim'
  fi
 
 ENABLE_CORRECTION="true"
