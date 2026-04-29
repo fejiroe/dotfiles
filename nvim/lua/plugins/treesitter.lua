@@ -6,7 +6,7 @@ return {
         local treesitter = require('nvim-treesitter')
         treesitter.setup()
         vim.api.nvim_create_autocmd('FileType', {
-            pattern = {'c', 'cpp', 'rust', 'vim', 'vimdoc', 'markdown', 'swift', 'bash'},
+            pattern = {'c', 'cpp', 'rust', 'vim', 'vimdoc', 'markdown', 'bash'},
             callback = function ()
                 vim.treesitter.start()
                 vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
