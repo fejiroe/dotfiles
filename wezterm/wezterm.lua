@@ -108,7 +108,7 @@ if is_linux then
     config.font_size = 15
     config.color_scheme = 'poimandres'
     config.hide_tab_bar_if_only_one_tab = true
-    config.window_background_opacity = 0.66
+    config.window_background_opacity = 0.72
     config.window_decorations = "RESIZE | INTEGRATED_BUTTONS"
     config.enable_wayland = false
     config.cursor_trail = {
