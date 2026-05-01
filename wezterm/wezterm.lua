@@ -74,11 +74,12 @@ wezterm.on(
 local is_darwin <const> = wezterm.target_triple:find("darwin") ~= nil
 local is_linux <const> = wezterm.target_triple:find("linux") ~= nil
 
+config.window_background_opacity = 1.0
+
 if is_darwin then
     config.font = wezterm.font 'Terminus (TTF)'
     config.font_size = 20
     config.color_scheme = 'poimandres'
-    config.window_background_opacity = 0.81
     config.macos_window_background_blur = 21
     config.window_decorations = "RESIZE | MACOS_FORCE_DISABLE_SHADOW | MACOS_FORCE_SQUARE_CORNERS"
     config.hide_tab_bar_if_only_one_tab = true
@@ -108,7 +109,6 @@ if is_linux then
     config.font_size = 15
     config.color_scheme = 'poimandres'
     config.hide_tab_bar_if_only_one_tab = true
-    config.window_background_opacity = 0.72
     config.window_decorations = "RESIZE | INTEGRATED_BUTTONS"
     config.enable_wayland = false
     config.cursor_trail = {
