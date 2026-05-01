@@ -41,6 +41,10 @@ alias zshrc="nvim ~/.zshrc"
 alias tmuxconf="nvim ~/.tmux.conf"
 
 #
+function set_win_title(){
+    echo -ne "\033]0; $(basename "$PWD") \007"
+}
+starship_precmd_user_func="set_win_title"
 eval "$(starship init zsh)"
 
 # Added by LM Studio CLI (lms)

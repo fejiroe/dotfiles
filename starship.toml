@@ -1,3 +1,27 @@
+#format = """$character"""
+format = """($container$fill$git_metrics\n)\
+$hostname\
+$localip\
+$shlvl\
+$shell\
+$env_var\
+$jobs\
+$sudo\
+$username\
+$character"""
+right_format = """$all"""
+
+###
+[character]
+success_symbol = '>(green)'
+vimcmd_symbol = '<'
+error_symbol = "[>](red)"
+[fill]
+symbol = ' '
+[cmd_duration]
+format = "[took $duration ](italic white)"
+##
+
 [buf]
 symbol = " "
 
@@ -127,3 +151,10 @@ symbol = " "
 
 [gradle]
 symbol = " "
+
+[battery]
+full_symbol = "• "
+charging_symbol = "⇡ "
+discharging_symbol = "⇣ "
+unknown_symbol = "❓ "
+empty_symbol = "❗ "
