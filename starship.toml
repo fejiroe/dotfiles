@@ -1,15 +1,15 @@
 #format = """$character"""
-format = """($container$fill$git_metrics\n)\
-$hostname\
-$localip\
-$shlvl\
-$shell\
-$env_var\
-$jobs\
-$sudo\
-$username\
-$character"""
-right_format = """$all"""
+#format = """($container$fill$git_metrics\n)\
+#$hostname\
+#$localip\
+#$shlvl\
+#$shell\
+#$env_var\
+#$jobs\
+#$sudo\
+#$username\
+#$character"""
+#right_format = """$all"""
 
 ###
 [character]
